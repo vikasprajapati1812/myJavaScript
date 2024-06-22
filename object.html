@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <h1>JavaScipt Objects</h1>
+    <p>Here Everything is written about object here...</p>
+    <p>an object is an unordered collection of key-value pairs. Each key-value pair is called a property.</p>
+
+        <p>    The key of a property can be a string. The value of a property can be any value, e.g., a string, a number, an array, and even a function.</p>
+        <p>      
+        JavaScript provides you with many ways to create an object. The most commonly used one is to use the object literal notation.</p>
+
+    <script>
+
+console.log("hello JavaSCript Objects");
+
+console.log("Objects are written in key:value pairs.  Keys are also called as properties here.");
+let person={
+    firstName:"Vikas",
+    lastName:"Prajapati",  // here fistName and lastName are the properties and person is an object.
+    // if object have multiple properties they are seperated by the "," .
+};
+
+    //Acccessing the properties of objects.
+    // Properties can be accessed in two ways.  1> Dot Notation     2> Array like Notation
+
+    console.log(person.firstName);
+   
+   
+    console.log(person[`firstName`]);     // person["firstName"] or person['firstName']  are all same.
+    console.log(person['lastName']);
+// we generally prefer the 2nd bcause sometime there is space in key . then it works  but the dot notation doesnot works on that.
+
+//When a property name contains spaces, you need to place it inside quotes. For example, the following address object has the 'building no' as a property:
+let address = {
+    'building no': 3960,
+    street: 'North 1st street',
+    state: 'CA',
+    country: 'USA'
+};
+console.log(address);
+console.log(address.Prototype);
+console.log(address['building no']);
+
+// address.'building no';   // it will throw an error. SyntacError: Unexpected string
+// Note that it is not a good practice to use spaces in the property names of an object.
+
+//also if the properties didn't exists in the object then it will result in  "undefined"
+
+
+
+//  Modifying the value of a property ---> (assignement operator "=") 
+
+let person1 = {
+    firstName: 'John',
+    lastName: 'Doe'
+};
+
+person1.firstName = 'Jane';
+
+console.log(person1);
+
+// if the property didnot exist while assigning then it automatically add that;
+
+person1.salary=50000;
+
+console.log(person1);
+console.log(typeof person1);
+console.log(typeof person1.salary)
+
+
+// Deleting a property of an object
+
+delete person1.salary;
+console.log(person1);
+
+console.log(person1.salary)   // if the thing is not present then it shows undefined
+
+
+// Checking if a property exists --->  using the 'in' operator   returns the boolean value
+
+
+let hero={
+    firsttName:"Peter",
+    LastName:"Parker",
+    age:26,
+};
+console.log("father" in hero);   //false
+console.log("age" in hero);    // true
+
+
+    </script>
+</body>
+</html>
