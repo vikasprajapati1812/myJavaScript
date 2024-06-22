@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array_Search</title>
+    <style>
+
+
+    </style>
+</head>
+<body>
+    <h1>Array search from w3school</h1>
+
+    <h1>Array find and Search</h1>
+
+<h2><pre>Array indexOf()----->array.indexOf(item, start)
+                                The indexOf() method searches an array for an element value and returns its position.
+                                Note: The first item has position 0, the second item has position 1, and so on.
+    Array lastIndexOf()----->Array.lastIndexOf() is the same as Array.indexOf(), but returns the position of the last occurrence of the specified element.
+    Array includes()-----> ECMAScript 2016 introduced Array.includes() to arrays. This allows us to check if an element is present in an array (including NaN, unlike indexOf).
+                            array.includes(search-item).
+                            Array.includes() allows to check for NaN values. Unlike Array.indexOf().
+    Array find()----->The find() method returns the value of the first array element that passes a test function.
+                    Note that the function takes 3 arguments:
+
+                        The item value
+                        The item index
+                        The array itself
+    Array findIndex()----->
+                    The findIndex() method returns the index of the first array element that passes a test function.
+    Array findLast()----->ES2023 added the findLast() method that will start from the end of an array and return the value of the first element that satisfies a condition.
+    Array findLastIndex()----->Array findLastIndex() Method
+    The findLastIndex() method finds the index of the last element that satisfies a condition.
+</pre></h2>
+    <script>
+        /// indexof////////
+
+        const fruits = ["Apple", "Orange", "Apple", "Mango"];
+let position = fruits.indexOf("Apple") + 1;        // +1 since the indexing start from 0
+console.log(position);
+console.log(fruits.indexOf("kiwi"));  // returns -1 since not found 
+
+
+
+// //           lastIndexOf
+const fruit=["Apple", "Mango","Apple","Banana","Papaya","Orange","Kiwi"];
+console.log(fruit.lastIndexOf("Apple"));
+console.log("for Position of last apple==>",fruit.lastIndexOf("Apple")+1);
+
+// array.lastIndexOf(item, start)
+// item	Required. The item to search for
+// start	Optional. Where to start the search. Negative values will start at the given position counting from the end, and search to the beginning
+
+console.log(fruit.lastIndexOf("Apple",5));         //i tink not working coorectly
+
+
+
+
+//Array.includes() allows to check for NaN values. Unlike Array.indexOf().
+// array.includes(search-item);         returns true or false
+const fruitt=["Banana","Orange","Kiwi","Papaya","PEAR","Mango"];
+console.log(fruitt.includes("Mango"));      // true
+
+
+
+
+
+
+
+
+
+
+// Array find()
+// The find() method returns the value of the first array element that passes a test function.
+
+
+const numbers = [4, 9, 16, 25, 29];
+var first = numbers.find(myFunction);
+
+function myFunction(value, index, array) {
+  return value > 18;
+}
+console.log(first);
+
+
+
+
+
+//Array findIndex()
+var num = [4, 9, 16, 25, 29];
+var first=num.findIndex(myfunc);
+
+function myfunc(value,index,array){   // here if we replace the position of value ,index ,array then it will trhough error.
+
+    return value>20;
+}
+console.log(first);
+
+
+
+
+
+//Array findLast() Method
+// ES2023 added the findLast() method that will start from the end of an array and return the value of the first element that satisfies a condition.
+
+const temp = [27, 28, 30, 40, 42, 35, 30];
+let high = temp.findLast((x) => x > 34);
+console.log(high);
+
+
+
+// Array findLastIndex() Method
+// The findLastIndex() method finds the index of the last element that satisfies a condition.
+
+const temp1 = [27, 28, 30, 40, 42, 35, 30];
+let pos = temp1.findLastIndex(x => x > 40);
+console.log(pos);
+    </script>
+</body>
+</html>

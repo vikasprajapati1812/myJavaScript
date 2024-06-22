@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrays Methods</title>
+
+    <style>
+
+body{
+    background-color: aquamarine;
+    
+}
+    </style>
+</head>
+
+<body>
+    <h1>Arrays Basics from W3schools</h1>
+    <h1>Basic Array Methods</h1>
+    <h2>
+        <pre>
+        Array length      -----> returns the length of the array.
+        Array toString()  -----> Converts the value in string.
+        Array at()        -----> Returns the element at that index.
+        Array join()      ----->The join() method also joins all array elements into a string.
+                                It behaves just like toString(), but in addition you can specify the separator:
+        Array pop()       ----->Popping items out of an array,
+                                The pop() method removes the last element from an array
+        Array push()      -----> or pushing items into an array.
+                                The push() method adds a new element to an array (at the end):
+        Array shift()     ----->The shift() method removes the first array element and "shifts" all other elements to a lower index.
+        Array unshift()   ----->The unshift() method adds a new element to an array (at the beginning), and     "unshifts" older elements:
+       
+       
+       
+        Array delete()    ----->
+                                Warning !
+                                Using delete() leaves undefined holes in the array.
+                                Use pop() or shift() instead.
+        Array concat()    ----->Note
+                                The concat() method does not change the existing arrays. It always returns a new array.
+                                The concat() method can take any number of array arguments.
+
+
+        Array copyWithin()----->The copyWithin() method copies array elements to another position in an array:
+
+                            Note:
+                                The copyWithin() method overwrites the existing values.
+
+                                The copyWithin() method does not add items to the array.
+
+                                The copyWithin() method does not change the length of the array.
+        Array flat()      ----->Flattening an Array
+                            Flattening an array is the process of reducing the dimensionality of an array.
+        
+                            Flattening is useful when you want to convert a multi-dimensional array into a one-dimensional array.
+                            The flat() method creates a new array with sub-array elements concatenated to a specified depth.
+
+        Array splice()    ----->
+                             eg-->       fruits.splice(2, 0, "Lemon", "Kiwi");
+                            The first parameter (2) defines the position where new elements should be added (spliced in).
+
+                            The second parameter (0) defines how many elements should be removed.
+
+                            The rest of the parameters ("Lemon" , "Kiwi") define the new elements to be added.
+
+                            The splice() method returns an array with the deleted items:
+        Array toSpliced() ----->ES2023 added the Array toSpliced() method as a safe way to splice an            array without altering the original array.
+
+                            The difference between the new toSpliced() method and the old splice() method is that the new method creates a new array, keeping the original array unchanged, while the old method altered the original array.
+        
+                                Example
+                                const months = ["Jan", "Feb", "Mar", "Apr"];
+                                const spliced = months.toSpliced(0, 1);
+        Array slice()     ----->The slice() method slices out a piece of an array into a new array:
+    </pre>
+    </h2>
+
+
+    <script>
+        /////           Array Length
+        const fruits = ["apple", "Mango", "Banana", "Orange", "Kiwi"];
+        console.log("Length of the Fruits array is=", fruits.length);
+
+        /////           Array.toString()
+        console.log(fruits, typeof fruits);
+        console.log(typeof (fruits.toString()));   // here the array(typeof object) converts to String.
+
+
+
+        /////           Array.at()
+
+        console.log(fruits);
+        console.log("Element at 2 index==>", fruits[2]);
+
+        console.log("Element at last index==>", fruits[fruits.length - 1]);       // accessing the last index element
+
+        console.log(fruits[-2]);   // -ve index doesnot work it return undefined
+
+
+
+        //////Array.join
+
+        console.log(fruits);
+        console.log("Joining the Fruits elements using **   =====>", fruits.join("**"));
+
+        console.log("Joining the Fruits elements using +++   =====>", fruits.join("+++"));
+
+
+        // Popping and Pushing
+
+        // The pop() method removes the last element from an array.
+        // The push() method adds a new element to an array (at the end):
+
+        console.log(fruits);
+        console.log("removing the last element in fruits which is ==>", fruits.pop());
+        console.log(fruits);
+
+        console.log(fruits);
+        console.log("adding element in fruits at last which is ===> waterMelon",);
+        fruits.push("waterMelon")
+
+        console.log(fruits);
+        console.log("adding element in fruits at last which is ===>", fruits.push("waterMelon"));  // ask mam why is is showing 6(its length i know)
+        // The push() method returns the new array length:     thats why showing the 6
+
+
+
+
+        // Shifting Elements
+
+        // array.shift()
+        // The shift() method removes the first array element and "shifts" all other elements to a lower index.
+        // The shift() method returns the value that was "shifted out":
+
+        const cars = ["Audi", "Mustang", "Maruti", "Hyundai", "Toyota"];
+        console.log(cars);
+        cars.shift();
+        console.log(cars);
+
+        //         Array unshift()
+        // The unshift() method adds a new element to an array (at the beginning), and "unshifts" older elements:
+        // The unshift() method returns the new array length:
+
+        console.log(cars);
+        cars.unshift("Ferrari"); //adds up in start of array
+        console.log(cars);
+
+        //it also returns the new array length
+        console.log(cars," the length of new array usig unshift ===>",cars.unshift("Mahindra"))  // its return the new array length ..        To see the new array then Console log
+
+        console.log(cars);
+
+
+
+
+
+        //Delete                // deleting leaves the undefined holes in the array, shows "empty"
+
+        console.log(fruits);
+        delete fruits[3];                       // removing the 4th element or 3rd index " orange"
+console.log("Orange is removed", fruits)         // at place of orange you will see the empty
+console.log(fruits.length);                      // length remains the same after deleting
+        
+
+
+
+
+// Array concat()
+// The concat() method creates a new array by merging (concatenating) existing arrays:
+
+console.log(cars,fruits);
+console.log(cars.concat(fruits));   // concatenating the two array end to end
+
+
+// Note
+// The concat() method does not change the existing arrays. It always returns a new array.
+
+// The concat() method can take any number of array arguments.
+const carsfruits=console.log(cars.concat(fruits));
+console.log("carsfruits===>",carsfruits);
+
+
+
+///Merging the array with values
+const arr1 = ["Tom", "Bob", "Harry"];
+const children = arr1.concat("Peter");
+console.log(children);
+
+
+//adding the more than 2 arrays  cars, fruits and children
+
+const mix=cars.concat(children,fruits);
+console.log("Mix of  cars children and fruits===> ",mix)
+
+
+
+
+
+//  copyWithin()
+// The copyWithin() method copies array elements to another position in an array:
+const fruit = ["Banana", "Orange", "Apple", "Mango"];
+console.log(fruit);
+fruit.copyWithin(2, 0) ;            //Copy to index 2, from all elements from index-0
+console.log(fruit);
+
+console.log(cars);
+cars.copyWithin(2,0,2);     //Copy to index 2, the elements from index 0 to 2:
+console.log(cars)
+
+// Note
+// The copyWithin() method overwrites the existing values.
+
+// The copyWithin() method does not add items to the array.
+
+// The copyWithin() method does not change the length of the array.
+
+
+
+
+
+
+// Flattening an Array
+// Flattening an array is the process of reducing the dimensionality of an array.
+
+// Flattening is useful when you want to convert a multi-dimensional array into a one-dimensional array.
+// The flat() method creates a new array with sub-array elements concatenated to a specified depth
+
+
+const myArr = [[1,2],[3,4],[5,6]];
+console.log(myArr)
+
+const newArr = myArr.flat();
+console.log(newArr)
+
+
+
+
+//Splicing and Slicing Arrays
+
+// The splice() method adds new items to an array.
+
+// The slice() method slices out a piece of an array.
+
+
+const fruitt = ["Banana", "Orange", "Apple", "Mango"];
+console.log(fruitt);
+fruitt.splice(2, 0, "Lemon", "Kiwi");
+        // The first parameter (2) defines the position where new elements should be added (spliced in).
+        // The second parameter (0) defines how many elements should be removed.
+        // The rest of the parameters ("Lemon" , "Kiwi") define the new elements to be added.
+
+// The splice() method returns an array with the deleted items:
+console.log(fruitt);
+
+
+
+
+//Removinng the element with the help of splice without leaving the holes in array;
+console.log(fruitt);
+fruitt.splice(0, 1);
+                // The first parameter (0) defines the position where new elements should be added (spliced in).
+
+                // The second parameter (1) defines how many elements should be removed.
+
+                // The rest of the parameters are omitted. No new elements will be added.
+console.log(fruitt);
+
+
+// JavaScript Array toSpliced()
+// ES2023 added the Array toSpliced() method as a safe way to splice an array without altering the original array.
+
+// The difference between the new toSpliced() method and the old splice() method is that the new method creates a new array, keeping the original array unchanged, while the old method altered the original array.
+
+const months = ["Jan", "Feb", "Mar", "Apr"];
+console.log(months)
+const spliced = months.toSpliced(0, 1);
+console.log(spliced);
+
+
+
+
+
+//Array slice()
+// The slice() method slices out a piece of an array into a new array:
+
+const emp=["Harman","Tom","david", "Henry","Bob","Harry"];
+console.log(emp);
+emp1=emp.slice(3);       // after the index 3 all elements are taken out.
+console.log(emp1);
+console.log(emp);
+
+
+
+
+
+// The slice() method can take two arguments like slice(1, 3).
+
+// The method then selects elements from the start argument, and up to (but not including) the end argument.
+
+console.log(cars);
+cars1=cars.slice(1,3);
+console.log(cars1);
+console.log(cars);               
+
+
+
+
+
+    </script>
+</body>
+
+</html>

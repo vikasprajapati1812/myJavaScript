@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Iteration</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <h1>Array Iterartion from W3school</h1>
+    <h2>Array Iteration Methods operate on every array item:</h2>
+
+    <h2>
+        <pre>
+    Array forEach       =====> The forEach() method calls a function (a callback function)once for array element.
+            Note that the function takes 3 arguments:
+                    The item value
+                    The item index
+                    The array itself
+
+
+    Array map()   =====>The map() method creates a new array by performing a function on each array element.
+                        The map() method does not execute the function for array elements without values.
+                        The map() method does not change the original array.
+
+
+    Array flatMap()     =====>ES2019 added the Array flatMap() method to JavaScript.
+                        The flatMap() method first maps all elements of an array and then creates a new array by flattening the array.
+
+
+    Array filter()      =====>The filter() method creates a new array with array elements that pass a test.
+
+    This example creates a new array from elements with a value larger than 18:
+    Array reduce()      =====> The reduce() method runs a function on each array element to produce (reduce                             it to) a single value.
+
+                                The reduce() method works from left-to-right in the array. See also reduceRight().
+    
+                                The reduce() method does not reduce the original array
+
+                                Note that the function takes 4 arguments:
+
+                                The total (the initial value / previously returned value)
+                                The item value
+                                The item index
+                                The array itself
+    Array reduceRight() =====>  works same as reduce but it takes the four arguments
+
+    Array every()       =====>  The every() method checks if all array values pass a test.
+    Array some()        =====>The some() method checks if some array values pass a test.
+    Array from()        =====>
+    Array keys()        =====>
+    Array entries()     =====>
+    Array with()        =====>
+    Array Spread (...)  =====>
+</pre>
+    </h2>
+
+
+
+    <script>
+        ////    forEach()   //////
+
+        const numbers = [45, 4, 9, 16, 25];
+        numbers.forEach(myFunction);
+        function myFunction(value,index,array){
+            console.log(value);
+        }
+
+
+
+
+        /// Array Map//////
+
+        const numbers1 = [45, 4, 9, 16, 25];
+        console.log(numbers1);
+        var number2=numbers1.map(myfunc);
+
+        function myfunc(value,index,array){
+            return value**2
+        }
+        console.log("square of the number1 array",number2);
+
+
+
+
+
+        ////// Array flatmap ///////
+
+        var myArr=[12,3,5,21,53,32,43];
+        console.log(myArr);
+        var myArr1=myArr.flatMap(multiply2);
+        function multiply2(value,index,array){
+            return value*2
+        }
+        console.log(myArr1);
+
+
+
+
+        ////  arrray filter////
+
+// The filter() method creates a new array with array elements that pass a test.
+
+
+// This example creates a new array from elements with a value larger than 18:
+const numbs = [45, 4, 9, 16, 25];
+const over18 = numbs.filter(myFunction);
+
+function myFunction(value, index, array) {
+  return value > 18;
+}
+console.log("Original Array",numbs);
+console.log(over18);
+
+
+
+
+//// Array REduce()   ///////
+
+
+// Note that the function takes 4 arguments:
+
+// The total (the initial value / previously returned value)
+// The item value
+// The item index
+// The array itself
+
+var numb=[45,32,23,12,20,8,45];
+let sum=numb.reduce(func);
+function func(result,prev){
+    return result+prev
+};
+console.log(sum);
+
+
+
+//another way
+
+function func1(total,value,index,array){
+    return total+value
+}
+let sum1=numb.reduce(func1);
+console.log(sum1);
+
+
+
+// reduce can also take the parameter
+
+let sum2=numb.reduce(myfuncc,100);
+function myfuncc(total,value){
+    return total+value
+}
+console.log(sum2);
+
+
+
+
+/// Every()
+
+var num = [45, 4, 9, 16, 25];
+var allOver18 = num.every(myFunction);
+
+function myFunction(value, index, array) {
+  return value > 18;
+}
+console.log(num);
+
+
+
+
+//////   some()          // retruns true or false
+
+var nums = [45, 4, 9, 16, 25];
+var allOver18 = nums.some(myFunction);
+
+function myFunction(value, index, array) {
+  return value > 18;
+}
+console.log(allOver18);
+
+    </script>
+</body>
+
+</html>

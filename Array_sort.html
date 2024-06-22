@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array_sort</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <h1>Array SOrt from w3school</h1>
+    <h2>
+        <pre>
+        <em>Alphabetic Sort</em>
+                Array sort()        ------> The sort() method sorts an array alphabetically:
+                Array reverse()     ------>  The reverse() method reverses the elements in an array:
+                Array toSorted()    ------> the toSorted() method as a safe way to sort an  array without altering the original array.
+                Array toReversed()  ------>   ES2023 added the toReversed() method as a  safe way to reverse an array without altering the original array.
+
+                The difference between toReversed() and reverse() is that the first method creates a new array, keeping the original array unchanged, while the last method alters the original array.
+                Sorting Objects     ------>  
+
+        <em>Numeric Sort</em>
+                Numeric Sort        ------> Numeric Sort
+                By default, the sort() function sorts values as strings.
+                
+                This works well for strings ("Apple" comes before "Banana").
+                
+                If numbers are sorted as strings, "25" is bigger than "100", because "2" is bigger than "1".
+                
+                Because of this, the sort() method will produce incorrect result when sorting numbers.
+                Random Sort         ------>  
+                Math.min()          ------>   
+                Math.max()          ------>   
+                Home made Min()     ------>  
+                Home made Max()     ------>   
+    </pre>
+    </h2>
+
+    <script>
+        // sort()
+// The sort() method sorts an array alphabetically:
+
+var fruits = ["Banana", "Orange", "Apple", "Mango"];
+console.log(fruits);
+
+fruits.sort();
+console.log(fruits);
+
+
+// Reversing an Array
+// The reverse() method reverses the elements in an array:
+
+var fruits=["Banana","apple","Mango","Guava", "grapes"];
+console.log(fruits);
+console.log(fruits.reverse());
+
+
+
+// By combining sort() and reverse(), you can sort an array in descending order:
+// to sort in descending order first sort then reverse it.
+var fruits = ["Banana", "Orange", "Apple", "Mango"];
+console.log(fruits);
+console.log(fruits.sort());
+console.log(fruits.reverse());
+
+
+
+
+// difference b/w the sort and toSorted is that toSorted() creates the new array and doesnot alter the original one , but the  sort() alter the original one .
+
+var fruits = ["Banana", "Orange", "Apple", "Mango"];
+console.log("Original",fruits);
+var fruits2=fruits.toSorted();
+console.log("New array",fruits2);
+console.log("Original remains unchanged", fruits);
+
+
+
+// ES2023 added the toReversed() method as a safe way to reverse an array without altering the original array.
+
+// The difference between toReversed() and reverse() is that the first method creates a new array, keeping the original array unchanged, while the last method alters the original array.
+
+var months = ["Jan", "Feb", "Mar", "Apr"];
+console.log("Original array",months);
+var reversed = months.toReversed();
+console.log("New array using toReversed",reversed);
+console.log("Original array didnt change",months);
+
+
+
+
+
+
+                    ///////////////////Numeric Sort
+/*
+By default, the sort() function sorts values as strings.
+
+This works well for strings ("Apple" comes before "Banana").
+
+If numbers are sorted as strings, "25" is bigger than "100", because "2" is bigger than "1".
+
+Because of this, the sort() method will produce incorrect result when sorting numbers.
+*/
+
+
+const points = [40, 100, 1, 5, 25, 10];
+console.log(points);
+console.log(points.sort())    // it wiil not work properly in the arrays
+points.sort(function(a, b){return a - b});
+console.log(points);
+
+
+// Using the same above tricks to sort in descending order
+const pointss = [40, 100, 1, 5, 25, 10];
+console.log(pointss);
+pointss.sort(function(a, b){return b - a});
+console.log(pointss);
+
+
+/*
+// eXPLANATION OF ABOVE CODE HOW IT IS WORKING
+When the sort() function compares two values, it sends the values to the compare function, and sorts the values according to the returned (negative, zero, positive) value.
+
+If the result is negative, a is sorted before b.
+
+If the result is positive, b is sorted before a.
+
+If the result is 0, no changes are done with the sort order of the two values.
+
+Example:
+
+The compare function compares all the values in the array, two values at a time (a, b).
+
+When comparing 40 and 100, the sort() method calls the compare function(40, 100).
+
+The function calculates 40 - 100 (a - b), and since the result is negative (-60),  the sort function will sort 40 as a value lower than 100.
+*/
+
+
+
+
+
+
+
+// Finding the Max and Min value in the Array , as the array doesnot have the Math.max() and Math.min()
+
+var numbs=[12,23,42,54,21,44,5];
+console.log(numbs);
+console.log("Min number in the array",Math.min.apply(null,numbs));
+console.log("Max number in the array",Math.max.apply(null,numbs));
+
+
+// there is another method where you can sort first and then find the fist and last number of array for min and max
+
+var numbsort=numbs.sort(); // wrong answers in console      // sort doenot work on the numbers ..... 
+console.log(numbsort);
+
+
+// so using another way to sort
+var numbsort=numbs.sort(function(a,b){
+    return (a-b)
+});
+
+console.log("ascending order sort====>",numbsort);    // it works   ascending ordeer sort
+
+
+var numbsort=numbs.sort(function(a,b){          /// sorting in descending order
+    return b-a
+});
+console.log("Descending order sort===>", numbsort);
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
