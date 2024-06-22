@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array</title>
+    <style>
+        body{
+            background-color: rgba(0, 255, 255, 0.171);
+        }
+
+
+    </style>
+</head>
+<body>
+    <h1>Questions Array Practise Task</h1>
+    
+        <h1>Ques1. Write a JS function to check whether an 'input' is an array or not.</h1>
+        <h1>Ques2 Write a JS function to clone an array.</h1>
+        <h1>Ques3 Write a JS function to get the first element of an array</h1>
+        <h1>Ques4 Write a simple JS program to join all elements of the following array into a string.
+            sample array: myCar=["BMW","Ferrari"."VolksWagen","Bentely"];
+        </h1>
+        <h1>Ques5 Write a JS program to add items to a blank array and display them.</h1>
+        <h1>Ques6 Write  a JS Program to remove  duplicate items from an array.</h1>
+        <h1>Ques7 Write a JS program to find duplicate values in a JS array</h1>
+        <h1>Ques8 There are two arrays with individual values.
+            Write a JS program to compute sum of each.
+            Individual index value in a given array.
+            Sample array:
+            array1=[1,0,2,3,4];
+            array2=[3,5,6,7,8,13];
+            Expected Output=[4,5,8,10,12,13];
+        </h1>
+        <h1>Ques9 Write a function that reverts the input array.</h1>
+        <h1>Ques10 Create an array with all odd numbers that are smaller than 10</h1>
+        <h1>Ques11 Delete the first and last element and show the resulting array.</h1>
+
+    
+
+
+    <script>
+
+
+
+        //  console.log("Ques1. Write a JS function to check whether an 'input' is an array or not.")
+        
+        
+        
+        //  function isAnArray(input){
+        //     console.log(input);
+
+        //     return console.log(Array.isArray(input)? "IS an Array":"Not a Array");  
+        // }
+        // isAnArray("vikas");
+        // isAnArray([1,4,34,456,67]);  
+
+
+        /////////////
+
+
+console.log("Ques2 Write a JS function to clone an array.")
+
+function arrayclone(input1){
+    let arrclone=[];
+    for (let elem of input1){
+        arrclone.push(elem);
+    } 
+    return arrclone
+}
+
+// arrayclone([1,2,45,35,56,68]);
+
+let clonedarray=arrayclone([1,2,45,35,56,68]);
+console.log(clonedarray);    
+
+
+// ///////////////
+
+
+console.log("Ques3 Write a JS function to get the first element of an array")
+
+function getfirstelement(arr){
+    console.log("array is ==>",arr);
+    let firstelem=arr[0];               // 0th elem is the 1st element of array
+    return firstelem
+}
+let firstelement=getfirstelement([65,83,347,456,23,34]);
+console.log(firstelement);
+
+
+
+/////////////////
+
+
+console.log(`Ques4 Write a simple JS program to join all elements of the following array into a string.
+            sample array: myCar=["BMW","Ferrari"."VolksWagen","Bentely"]`)
+
+            let myCar=["BMW","Ferrari","VolksWagen","Bentely"];
+            console.log(myCar.join(""));
+            console.log(myCar.join(" "));        // using the space to join
+            console.log(myCar.join("+"));       // using the + to join
+
+            console.log(typeof (myCar.join("")));
+
+
+
+
+            //////////////////////////////////////////
+
+
+console.log("Ques5 Write a JS program to add items to a blank array and display them.");
+
+let arr1=[];
+console.log("empty array=",arr1);
+
+arr1.push(5);       
+arr1.push(12);
+arr1.push(63);
+arr1.push(54);
+arr1.push(35);
+arr1.unshift(1000);         // adds the elements at the start of the array
+
+console.log(arr1);
+
+
+
+//////////////////////////
+
+
+
+console.log("Ques6 Write  a JS Program to remove  duplicate items from an array.");
+
+let carr = ["Maruti", "Ferrari",
+		"Maruti", "volkswagen", "Ferrari", "Bentely"];
+
+function removeDuplicates(arr) {
+	let unique = [];
+	carr.forEach(element => {
+		if (!unique.includes(element)) {
+			unique.push(element);
+		}
+	});
+	return unique;
+}
+console.log(removeDuplicates(carr));
+
+
+let arr = ["apple", "mango", "apple",
+		"orange", "mango", "mango"];
+
+function removeDuplicates(arr) {
+	return [...new Set(arr)];
+}
+
+console.log(removeDuplicates(arr));
+
+
+
+
+
+// function removeDuplicates(arr) {
+// 	let unique = arr.reduce(function (acc, curr) {
+// 		if (!acc.includes(curr))
+// 			acc.push(curr);
+// 		return acc;
+// 	}, []);
+// 	return unique;
+// }
+// console.log(removeDuplicates(arr));
+
+
+
+// function removeDuplicates(arr) {
+// 	let unique = [];
+// 	for (i = 0; i < arr.length; i++) {
+// 		if (unique.indexOf(arr[i]) === -1) {
+// 			unique.push(arr[i]);
+// 		}
+// 	}
+// 	return unique;
+// }
+// console.log(removeDuplicates(arr));
+
+
+
+
+//Question 8 reamining
+
+
+//Ques9 Write a function that reverts the input array.
+
+
+// var first = [1,2,3,4,5,6,7,8,9,10];
+// first.reverse();
+// console.log(first);
+
+    // using the Unshift()
+
+
+var array = [1, 2, 3, 4,5,6,7,8,9,10];
+var array1 = [];
+array.forEach(element => {
+    array1.unshift(element) ;     // it puts the element at the start of array
+});
+console.log(array1);
+
+
+
+
+/////////////////////////////
+
+
+console.log("Ques10 Create an array with all odd numbers that are smaller than 10");
+
+let oddarray=[];
+for (let i=0 ; i<=10;i++){
+    if(i%2!==0){
+        oddarray.push(i)
+    }
+}
+console.log(oddarray);
+
+
+/////////////////////////////
+
+console.log("Ques11 Delete the first and last element and show the resulting array.");
+
+console.log(oddarray);
+oddarray.shift();             // it removes the first element of array
+oddarray.pop();             // it removes the last element of array
+console.log(oddarray);
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>
