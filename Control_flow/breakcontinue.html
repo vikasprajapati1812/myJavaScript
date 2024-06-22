@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Break Continue and Comma Operator</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <h1>Break, Continue and Comma Operator</h1>
+
+
+    <script>
+
+        // for(let i=0;i<=5;i++){
+        //     console.log(i);
+        // }
+
+
+        // using break statement with for loop
+
+        // for(let i=0;i<=5;i++){
+        //     console.log(i);
+        //     if(i==3){
+        //         break; 
+        //     }
+        // }
+
+
+        // for(let i=0;i<=5;i++){
+        //     for(let j=0;j<=5;j++){
+        //         console.log(i,j);
+        //         break;
+        //     }
+        // }
+
+
+        // for (let i = 1; i <= 5; i++) {
+        //     for (let j = 1; j <= 5; j++) {
+        //         console.log(i, j);
+        //         if (i==3) {
+        //             break;
+        //         }
+        //     }
+        // }
+
+
+        
+        for (let i = 1; i <= 5; i++) {
+            for (let j = 1; j <= 5; j++) {
+                console.log(i, j);
+                if(j==3){
+                    break;
+                }
+            }
+            if (i==3) {
+                break;
+            }
+        }
+
+
+/////////////////////////////////////////////////// Continue///////////////////////////
+
+for(let i=0; i<=10;i++){
+    if(i%2===0){
+        continue;
+    }
+    console.log(i);
+}
+
+
+/////////////////////////////////////////////////// Continue///////////////////////////
+console.log("break break break break break break ")
+
+for(let i=1;i<=3; i++){
+    for(let j=1; j<=3; j++){
+        console.log(i,j);
+    }
+}
+
+
+/////////////////////////////////////////////////// Continue///////////////////////////
+console.log("break break break break break break 33 ")
+
+for(let i=1;i<=5; i++){
+    for(let j=1; j<=5; j++){
+        if(i+j===3){
+            console.log(i,j);
+            continue;
+        }
+    }
+}
+
+
+/////////////////////////////////////////////////// Comma ///////////////////////////
+
+let result=(10,10+20);       // comma evaluate left and right expression and return value of right expression
+console.log(result);  
+
+let result1=(10+20,10);
+console.log(result1);      // comma evaluate left and right expression and return value of right expression
+
+
+
+
+let x = 10;
+let y = (x++, x + 1);
+
+console.log(x, y);
+
+
+
+let x1 = 10;
+x1++;
+let y1 = x1 + 1;
+
+console.log(x1, y1);
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

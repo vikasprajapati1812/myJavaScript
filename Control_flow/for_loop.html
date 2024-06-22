@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Loop</title>
+
+    <style>
+
+    </style>
+
+<body>
+    <h1>For loop</h1>
+    <pre><h3>
+
+        for (initializer; condition; iterator) {
+            // statements
+        }
+    </h3>
+    </pre>
+
+   <h2>
+    <pre>
+1. initializer
+ The for statement executes the initializer only once the loop starts. Typically, you declare and initialize a local loop variable in the initializer.
+ 
+ 2. condition 
+ The condition is a boolean expression that determines whether the for should execute the next iteration.
+ 
+ The for statement evaluates the condition before each iteration. If the condition is true (or is not present), it executes the next iteration. Otherwise, it’ll end the loop.
+ 
+ 3. iterator
+ The for statement executes the iterator after each iteration.
+ 
+ The following flowchart illustrates the for loop:
+     </pre>
+   </h2>
+
+
+    <h2>for</h2>
+    <h2>for in </h2>
+    <h2>for of</h2>
+    <p>The For Of Loop
+        The JavaScript for of statement loops through the values of an iterable object.
+        
+        It lets you loop over iterable data structures such as Arrays, Strings, Maps, NodeLists, and more:</p>
+        <code>for (variable of iterable) {
+            // code block to be executed
+          }
+        </code>
+        <p>
+
+         variable - For every iteration the value of the next property is assigned to the variable. Variable can be declared with const, let, or var.
+          </p>
+          <p>iterable - An object that has iterable properties.
+        </p>
+
+    <h2><pre>Array.forEach()
+        The forEach() method calls a function (a callback function) once for each array element.
+       
+        Note that the function takes 3 arguments:
+       1. The item value
+       2. The item index
+       3. The array itself</pre></h2>
+    <script>
+
+        //printing the numbers from 1 to 10;
+        
+        for (let i = 0; i < 10; i++) {
+            console.log(i);
+        }
+        
+        for(let i=0;i<=20;i++){
+            console.log(i)
+        }
+       
+
+        //    
+        for (let p = 0; p <= 5; p++) {
+            let k = "*";
+            console.log(k.repeat(p))
+        }
+
+        // 
+        for (let p = 5; p >= 0; p--) {
+            let k = "*";
+            console.log(k.repeat(p))
+        }
+
+
+        // 
+        for (let p = 5; p >= 0; p--) {        //p>0 then extra line with space doesnot print
+            let k = "*";
+            console.log(k.repeat(p));
+        }
+
+
+
+        let m = 5;
+        for (let i = 1; i <= m; i++) {
+            let str = "* ";
+            let space = '';
+            console.log(space.repeat((m - i)) + str.repeat(i));
+        }
+
+
+        let n = 5;
+        for (let i = 1; i <= n; i++) {
+            let str = "*";
+            let space =' ';
+            console.log(space.repeat((n - i)) + str.repeat(i) + str.repeat(i - 1));
+        }
+
+
+      
+        // for(let ii=0; ii<=5; ii++){
+        //     for(let j=0; j<=ii; j++){
+        //         console.log("*") ;
+        //         break;
+        //     }
+        // }
+
+
+        //moving through the array
+
+        const cars = ["BMW", "Volvo", "Saab", "Ford" ,"Mercedes" ,"Morrris Garage"];
+        for(let i=0; i<cars.length;i++){
+            console.log(cars[i]);
+        }
+
+        for (let i = 0, len = cars.length, text = ""; i < len; i++) {
+  text += cars[i] + "<br>";
+  console.log(text);
+}
+
+
+for (let i = 0, len = cars.length, text = ""; i < len; i++) {
+  text += cars[i]+" " ;
+  console.log(text); // if we put "text" variable outside { } then it throws error bcz it is locally defined
+}
+
+
+
+
+
+
+
+// for in loop
+
+//Object
+const person = {
+    fname:"Peter",
+    lname:"Parker",
+    age:25
+};
+
+let text = "";
+for (let x in person) {
+  text += person[x]+" ";
+}
+console.log(text);
+
+
+
+
+// Array
+const numb = [45, 4, 9, 16, 25];
+
+
+for (let x in numb) {
+    console.log(x);           // it will only print the index 0-4
+}
+
+for (let x in numb) {
+    console.log(x,numb[x]);   // it will print the  index as well as the element at that index
+}
+
+
+
+
+const numbers = [45, 4, 9, 16, 25];
+
+let txt = "";
+for (let x in numbers) {
+  txt += numbers[x];
+}
+console.log(txt);   // they are attached like string bcz the txt is string and after string + sign change the no. to sting no.
+
+
+
+
+const number = [45, 4, 9, 16, 25];
+
+let txt2 = 0;
+for (let x in numbers) {
+  txt2 += numbers[x];
+}
+console.log(txt2);  // in this case it add all the no.s   bcz here txt2 is assign to 0. 
+
+
+
+// Array ---> Array.forEach()
+
+
+let abc=[25,50,23,45,65,68,21,34,56];
+let text1="";
+abc.forEach(myfunction);
+function myfunction(value,index,array){
+text1=text1+value+" ";
+}
+console.log(text1);
+
+
+
+
+{
+let abc=[25,50,23,45,65,68,21,34,56];
+abc.forEach(myfunction);
+function myfunction(value,index,array){
+console.log(index,value,array);
+}
+}
+
+
+
+
+
+//      for of loop
+
+let lang="JavaScript";
+for(let i of lang){
+    console.log(i)
+}
+
+let language=["Java","php","python","Javascript","C++"];
+for(let i of language){
+    console.log(i);
+}
+
+
+
+
+// const lng={
+//     DS:"python",
+//     frontend:"JS",
+// }                                       /// object is not iterable
+// for(let i of lng){
+//     console.log(i)
+// }
+    </script>
+</body>
+
+</html>
