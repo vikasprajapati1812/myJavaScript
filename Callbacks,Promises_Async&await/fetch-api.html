@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fetch-API</title>
+    <style></style>
+  </head>
+  <body>
+    <h1>API= Apllication Programming Interface</h1>
+    <h1>
+      the fetch api provides an interface for fetching (sending/recicevng)
+      resources
+    </h1>
+    <h2>it uses REQUEST and RESPONSE objects.</h2>
+    <p>the Fetch() method is used to fetch a resources (data)</p>
+
+    <h1>let promise=fetch(url,[opitons])</h1>
+
+    <script>
+
+      // 'https://dummyjson.com/products/category/smartphones'
+      const URL='https://dummyjson.com/products/search?q=phone'
+
+
+      // const getFacts=async()=>{
+      //     console.log('fetching the data')
+      //     let response= await fetch(URL);
+      // console.log(response)   //json format
+      // let data= await response.json()
+      // console.log(data.products[0]);
+      // console.log(data.products[1]);
+      // console.log(data.products[2]);
+      // console.log(data.products[2].brand);
+      // console.log(data.products[2].images);
+
+
+      // }
+      // getFacts()
+
+
+
+
+
+      //// same using the promise chaining
+
+      function getFacts(){
+          fetch(URL)
+          .then((respons=>{
+              return respons.json()
+          })).then((data)=>{
+ console.log(data.products)
+ console.log(data.products[0]);
+ console.log(data.products[2]);
+ console.log(data.products[2].description);
+
+
+
+          })
+            
+          
+      }
+      getFacts()
+    </script>
+  </body>
+</html>

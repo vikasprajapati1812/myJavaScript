@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width='device-width', initial-scale=1.0">
+    <title>Strings Basics</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <h1>Strings_Methods from w3schools</h1>
+    <p>Strings are for storing the text.</p>
+    <p>Strings are written in quotes</p>
+
+    <script>
+
+
+
+        let carname = "";          // this is the empty string 
+        let carName = "Audi";
+        let carName1 = 'Mercedes';
+        let carName2 = `Maruti`;
+        console.log(carname);   //empty string
+        console.log(carname, carName, carName1, carName2);
+
+
+
+
+
+        console.log("String ---> Quotes inside the Quotes");
+
+        console.log('For a web developer the "JavaSCript" is must to be known.');
+        console.log('Writing the carName ${carName2}inside the backticks ');
+
+
+        //  length prooperty
+
+        console.log("lenth of carName2 = ", carName2, carName2.length);
+        console.log("ABCDEFGHIJKLMNOPQRSTUVWXYZ".length);
+
+       
+       // Escape Characters
+       
+        let text1 = "we are so called \"Vikings\" of the north.";
+        console.log(text1);
+
+        let text2 = 'I am writing my name  \"Vikas\" in " " using escape character.';     // inside the single ' '
+        console.log(text2);
+        let textt2 = `I am writing my name  \"Vikas\" in " " using escape character.`;     // inside the backticks 
+          console.log(textt2);
+        let text3 = `It's alright`;
+        console.log(text3);
+
+        let text4 = "It\'s alright";            // can be written in this way as well;
+        console.log(text4);
+       
+       
+       
+       
+        /////////////////////////////////////////////
+
+        console.log("Strings can also be defined as object using the keyword new.")
+
+        let x = "John";
+        console.log(typeof x);
+
+        let y = new String("Nikolas");        // now using this it is converted to object
+        console.log(typeof y);
+
+        console.log(`Do not create Strings objects.
+
+The new keyword complicates the code and slows down execution speed.
+
+String objects can produce unexpected results:`)
+
+
+      
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

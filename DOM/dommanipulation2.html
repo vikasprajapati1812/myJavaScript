@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom Manipulation rest part</title>
+    <link rel="icon" href="https://cdn.pixabay.com/photo/2016/10/10/14/46/icon-1728549_1280.jpg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <p>This is JavaScript DOM before() and after() method demo.</p>
+    <p id="para">selecting through the id</p>
+
+    <ul>
+        <li>Angular</li>
+        <li>Vue</li>
+    </ul>
+
+    <script>
+
+        //// before and after
+        let h3 = document.createElement('h3');
+        h3.textContent = "I will be inserted before the paragraph"
+        let p = document.querySelector('p');
+        p.before(h3);
+
+        let h2 = document.createElement('h2');
+        h2.textContent = "I will be inserted after the paragraph"
+        let q = document.querySelector('#para');
+        q.after(h2);
+
+
+
+        //// Using JavaScript before() to insert multiple nodes before an element
+
+        const libs = ['React', 'Meteor', 'Polymer'];
+        let list = document.querySelector("ul");
+        let items = libs.map((lib) => {
+            let li = document.createElement('li');
+            li.textContent = lib;
+            return li
+        })
+        list.firstChild.before(...items);
+
+
+        // for after()===> 
+        //list.lastChild.after(...items);
+        console.log(items);
+
+
+
+        ////        insertAdjacentHTML
+
+        let ul = document.querySelector('ul');
+        ul.insertAdjacentHTML('beforebegin', '<h2>Web Technology</h2>');
+        ul.insertAdjacentHTML('afterbegin', '<li>HTML</li>');
+        ul.insertAdjacentHTML('beforeend', '<li>C++</li>');
+        ul.insertAdjacentHTML('afterend', '<p>For frontend developers</p>')
+
+        console.log("============replaceChild=============")
+
+        //// replaceChild
+
+        let li=document.createElement('li');
+        li.textContent="Vikasss";
+        let ull=document.querySelector('ul');
+        ull.replaceChild(li,ull.firstElementChild);
+        console.log(ull.children);
+        
+        for(let child of ull.children){
+            console.log(child.textContent);
+        }; 
+        console.log("============removeChild=============")
+
+        ull.removeChild(ull.firstElementChild)
+        for(let child of ull.children){
+            console.log(child.textContent);
+        }; 
+        
+        console.log(ull.firstChild);
+       
+       
+       
+        //////   to remove all the child we can do 2 things
+       
+       
+        //// 1.
+        // while(ull.firstChild){
+        //     ull.removeChild(ull.firstChild);
+        // }
+
+        // console.log(ull.firstChild);
+        
+        //// 2.
+        // ull.innerHTML='';
+        // console.log(ull.firstChild);
+
+    </script>
+</body>
+
+</html>

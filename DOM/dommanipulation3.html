@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>JavaScript cloneNode() Demo</title>
+</head>
+
+<body>
+    <ul id="menu">
+        <li>Home</li>
+        <li>Services</li>
+        <li>About</li>
+        <li>Contact</li>
+    </ul>
+
+
+
+    <script>
+
+        // if you clone a node with an id attribute and place the cloned node in the same document, the id will be duplicate. In this case, you need to change the id before adding it to the DOM tree.
+        let menu = document.querySelector('#menu');
+        let clonedMenu = menu.cloneNode(true);
+        clonedMenu.id = 'menu-mobile';  // changing id name ,since we place it in same body thatswhy ,else id get duplicated.
+        document.body.appendChild(clonedMenu);
+
+
+
+
+
+        /////parentNode.append(...nodes);
+        /////parentNode.append(...DOMStrings);
+        let menuu = document.querySelector('#menu');
+
+        let langs = ['TypeScript', 'HTML', 'CSS'];
+
+        let nodes = langs.map(lang => {
+            let li = document.createElement('li');
+            li.textContent = lang;
+            return li;
+        });
+
+        menuu.append(...nodes);
+
+
+
+        let menubar = document.querySelector('#menu-mobile');
+
+        let xyz = ['abc','def','efg','ghi'];
+
+        let xyzz = xyz.map(char => {
+            let li = document.createElement('li');
+            li.innerHTML =char;
+            return li;
+        });
+
+        menubar.append(...xyzz);
+    </script>
+</body>
+
+</html>

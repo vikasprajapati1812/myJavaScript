@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>The arguments.length property returns the number of arguments received by the function:</p>
+
+<p id="demo"></p>
+
+<script>
+
+// function myFunction(a, b,c,d,...e,f) {
+//     console.log(a);
+// console.log(b);
+// console.log(c);
+// console.log(d);
+// console.log(e);
+// console.log(f);
+
+
+//   return arguments.length;
+// }
+// document.getElementById("demo").innerHTML = myFunction(4, 3,6,7,8,9,0,45);
+
+//   // destructuring    // for the exxtraction the ... operator should be at the end
+
+function myFunction(a, b,c,d,...e) {
+    console.log(a);
+console.log(b);
+console.log(c);
+console.log(d,typeof d);
+console.log(e,typeof e);
+
+
+  return arguments.length;
+}
+document.getElementById("demo").innerHTML = myFunction(4, 3,6,7,8,9,0,45);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Object Model</title>
+    <style>
+
+    </style>
+</head>
+<body><pre>
+    difference between innerHTML vs textContent
+    textContent helps us to show the hidden content as well.
+    innerHTML helps us to assign the tag inside it. and also show the text with the tags in output.
+    
+</pre>
+    <ul id="menu" class="vertical main">
+        <li>Homepage</li>
+        <li>Services</li>
+        <li>About</li>
+        <li>Contact</li>
+     </ul>
+    <h1 id="heading">This is the DOM Model heading H1</h1>
+    <p id="demo">This is  para after the h1 tag</p>
+    <div id="vik">Vikassss
+        <h2 id="pheading">This is heading h2 inside the div </h2>
+        <p id="pdemo">This is para inside the div</p>
+    </div>
+    <section id="sect" style="background-color: red;font-size: x-large;visibility:hidden;">THis is the section</section>
+
+
+    <script>
+        // document.getElementById('sect').style.visibility="visible";
+        // document.getElementById("vik").innerHTML="Change through JavaScript"
+        // document.getElementById("vik").innerText="Change through JavaScript"
+////Point to be noted it that it Overwrite the all
+/// to get to append all the we have to use like this
+
+// document.getElementById("vik").innerHTML +="COding JS"
+
+let menu = document.querySelector('#menu');
+console.log(menu.className);
+console.log(menu);
+console.log(menu.childElementCount);
+console.log(menu.children);
+console.log(menu.children[1].innerHTML);
+console.log(menu.lastChild);  //in terms of lastCHild it is text
+
+////there are 3 node= textnode, element node and commentnode  
+console.log(menu.lastElementChild.innerHTML);
+console.log(menu.firstElementChild.innerHTML);// in terms of lastelementChild it is Contact
+console.log(menu.children[3].innerHTML);
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

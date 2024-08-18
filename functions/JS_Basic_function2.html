@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>functions</title>
+    <style>
+
+
+    </style>
+</head>
+
+<body>
+    <h1>Functions</h1>
+    <pre><h2> </h2></pre>
+
+
+
+    <script>
+        function function1(a = 5, b = 10, c = 15) {
+            return console.log(a + b + c);
+        }
+        function1();
+        function1(10, 20, undefined);
+        function1(undefined, 20, undefined);
+
+
+
+
+        function function2(a, b = 10, c = 15) {
+            return console.log(a + b + c);
+        }
+        function2();
+        function2(10, 20, undefined);
+        function2(undefined, 20, undefined);
+
+
+
+
+        function function3() {
+
+        }
+        console.log(function3());         // return undefined
+
+
+
+        function hello(message) {
+            console.log(message);
+        }
+
+        hello(); // undefined
+
+
+
+
+
+        function say(message) {
+            message = typeof message !== 'undefined' ? message : 'Hi';
+            console.log(message);
+        }
+        say(); // 'Hi'
+
+
+
+
+        function say(message = 'Hiiii') {
+            console.log(message);
+        }
+
+        say(); // 'Hiiii'
+        say(undefined); // 'Hiiii'
+        say('Hellllllo'); //Hellllllo
+
+
+
+
+
+
+
+        function date(d = today()) {
+            console.log(d);
+        }
+        function today() {
+            return (new Date()).toLocaleDateString("en-IN");
+        }
+        date();
+
+
+        function add(x = 1, y = x, z = x + y) {
+            return x + y + z;
+        }
+
+        console.log(add()); // 4
+        console.log(add(5, 10));
+        console.log(add(5, 10, 20));  // z takes the passed argument value
+
+
+
+        function subtract(x =y, y = 1) {
+            return x - y;
+        }
+        subtract(10);        //it must give error y is accessed without initialisation
+
+
+
+console.log("Arguments pased can be access using the arguments keywords")
+
+
+        function add(x, y = 1, z = 2) {
+            console.log("Length of the Arguments",arguments.length);         // can access whole argument passed
+            console.log(arguments[0],arguments[1],arguments[2]);
+            return x + y + z;
+        }
+
+        add(10);
+        add(10, 20); 
+        add(10, 20, 30); 
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

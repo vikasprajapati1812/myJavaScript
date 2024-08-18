@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaSCript Manipulations</title>
+</head>
+<body>
+
+
+    <h1>Create a new div ,  this h1 tag</h1>
+    <h2>adding the ids and class using id and class </h2>
+    
+    
+    
+    <ul id="menu"> Company
+        <li>Home</li>
+    </ul>
+    
+
+ 
+    
+    <script>
+        console.log(document.title);
+        
+
+
+        let div=document.createElement('div');
+        div.innerHTML=`<p> this is para inside newly created div </p>`;
+        document.body.appendChild(div);
+
+     
+     
+     
+     
+        div.id='firstid';        // adding the id
+        div.className=['class1 class2 class3'];  // adding multiple classes
+        console.log(div.classList);    // prints the class names
+        console.log(div.id);            // print the id name
+
+    
+    
+    
+    
+        // ////let create a h3(with textcontent inside) inside the div
+        let h3=document.createElement('h3');
+        h3.textContent="this will be inside the newly added div ==> h3 heading ";
+        ////textContent ,innerText and innerHTML are theree ways to add and show text inside the element.
+        div.appendChild(h3);
+
+
+
+//// adding the script using the  create;
+
+let script=document.createElement('script');
+script.src='script.js';   // since standard properties can be accessed and assign value directly
+// document.body.appendChild(script);
+
+
+
+// let style=document.createElement('style');
+// // style.src='style.css';
+// style.type = 'text/css';
+// document.head.appendChild(style);
+
+
+
+
+
+
+
+
+
+
+
+
+////lets  add some list element inside the Unordered list
+
+let menu=document.querySelector('#menu');
+let li=document.createElement('li');
+li.textContent="homePage";
+menu.appendChild(li);
+
+
+
+
+// function createMenuItem(name) {
+//             let li = document.createElement('li');
+//             li.textContent = name;
+//             return li;     //its compulsory to return ,if not reutrn then no vlaue goes at function invoking side.
+//         }
+//         // get the ul#menu
+//         const menu = document.querySelector('#menu');
+//         // add menu item
+//         menu.appendChild(createMenuItem('Home'));
+//         menu.appendChild(createMenuItem('Services'));
+//         menu.appendChild(createMenuItem('About Us'));
+
+
+
+
+
+
+
+
+
+//// adding lots of list elements
+
+
+lists=["Products",'Services','Career','Contacts','Help']
+
+function addListElement(listsElement){
+    let li=document.createElement('li');
+    li.textContent=listsElement;
+    let menu=document.querySelector('#menu');
+    menu.appendChild(li);
+}
+for(let listsElement of lists){
+    addListElement(listsElement);
+}      
+
+
+
+
+// console.log(document.body.children);
+// console.log(document.body.childNodes);
+// console.log(document.querySelector("div").childNodes);
+// console.log(document.querySelector("div").childElementCount );
+// console.log(document.querySelector("div").hasChildNodes());
+
+
+
+// console.log("Node list looks like array but they aren't. Since we can use many methods like array to it.")
+
+
+
+
+
+
+///difference between the innerText, textContent and innerHTML
+
+
+// console.log(document.querySelector('div').innerText); // shows the text in human readable format
+// console.log(document.querySelector('div').textContent);// it can also show the hidden text
+// console.log(document.querySelector('div').innerHTML)// it returns the value with tags as well
+
+
+    </script>
+</body>
+</html>

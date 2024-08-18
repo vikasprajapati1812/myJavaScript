@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mackoon</title>
+    <style></style>
+  </head>
+  <body>
+    <h2>table coming frrom the url</h2>
+    <div class="manipulate">
+        <button id="add">Add</button>
+        <button id="delete">Delete</button>
+        <button id="update">Update</button>
+
+    </div>
+    <table border="1px solid steelblue" id="tableBody">
+      <tr>
+        <th>id</th>
+        <th>user</th>
+        <th>username</th>
+        <th>email</th>
+      </tr>
+    </table>
+
+    <script>
+      const URL = "http://localhost:3000/users";
+      fetch(URL)
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          console.log(typeof data);
+          console.log(Array.isArray(data)); // true    so we will use forEach over it
+          console.log(data[0]);
+          console.log(typeof data[0]);
+          console.log(Array.isArray(data[0]));
+
+          data.forEach((element) => {
+            console.log(element);
+            console.log(typeof element);
+            console.log(element.id);
+            console.log(element.name);
+            console.log(element.username);
+            console.log(element.website);
+
+            const tableBody = document.querySelector("#tableBody");
+            const rowElement = document.createElement("tr");
+            rowElement.innerHTML = `
+            <td>${element.id}</td>
+            <td>${element.name}</td>
+            <td>${element.username}</td>
+            <td>${element.website}</td>
+                `
+
+                tableBody.appendChild(rowElement);
+          });
+        });
+    </script>
+  </body>
+</html>

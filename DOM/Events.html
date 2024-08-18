@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Handling</title>
+    <link rel="icon" href="##">
+    <link rel="stylesheet" href="style.css">
+    <style>
+
+    </style>
+</head>
+<body>
+    <div id="container">
+        <button id='btn'>Click Me!</button>
+    </div>
+
+    <script>
+
+let btn = document.querySelector('#btn');
+
+btn.addEventListener('click', function(event) {
+    console.log('The button was clicked!')
+    // event.stopPropagation();
+});
+btn.addEventListener('click',function(event) {
+    alert('Clicked!');
+});
+
+document.body.addEventListener('click',function(event) {
+    console.log('The body was clicked!');
+});
+    </script>
+</body>
+</html>

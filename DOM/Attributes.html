@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manging Attribute</title>
+</head>
+<body>
+    <pre><h1>Attribute methods</h1>
+    <h2>element.getAttribute(name) – get the attribute value
+    element.setAttribute(name, value) – set the value for the attribute
+    element.hasAttribute(name) – check for the existence of an attribute
+    element.removeAttribute(name) – remove the attribute
+</h2></pre>
+    
+<h1><pre>
+    element.attributes
+The element.attributes property provides a live collection of attributes available on a specific element. 
+let input = document.querySelector('#username');
+
+for(let attr of input.attributes) {
+    console.log(`${attr.name} = ${attr.value}` )  
+}
+Code language: JavaScript (javascript)
+Output:
+
+type = text
+id = username
+secure = true
+
+
+
+Note that element.attributes is a NamedNodeMap, not an Array, therefore, it has no Array’s methods.
+</pre></h1>
+<input type="text" id="username" tabindex="1" value="Prajapati" >
+
+<input type="password" id="password" style="color:red;width:30%">
+
+<input type="checkbox" id="chkAccept" checked>
+
+
+<script>
+    let input = document.querySelector('#username');
+
+// attribute -> property
+input.setAttribute('tabindex', 2);
+console.log(input.tabIndex);  // 2
+
+// property -> attribute
+input.tabIndex = 3;
+console.log(input.getAttribute('tabIndex')); // 3
+
+
+
+let inputt = document.querySelector('#username');
+
+// attribute -> property: OK
+inputt.setAttribute('value','guest');
+console.log(inputt.value);  // guest
+
+
+// property -> attribute: doesn't change
+inputt.value = 'vikas';
+console.log(inputt.getAttribute('value'));  // console-->guest  but on webpage it shows the 'vikas'
+
+
+
+let inpu = document.querySelector('#password');
+
+let styleAttr = inpu.getAttribute('style');
+console.log(styleAttr);
+
+console.dir(inpu.style);
+
+
+
+let checkbox = document.querySelector('#chkAccept');
+console.log(checkbox.checked); // true
+
+
+
+
+////     hasAttribute
+console.log(document.querySelector('#chkAccept').hasAttribute('value'));
+
+
+////    removeAttribute
+console.log(document.querySelector('#chkAccept').removeAttribute('type'));
+
+
+
+//getting the all attributes of an element
+console.log(document.querySelector('#chkAccept').attributes);
+
+</script>
+</body>
+</html>

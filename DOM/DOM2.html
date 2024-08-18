@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM(document object model)</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: blueviolet;
+        }
+
+        /* .item{
+            display: inline;
+            padding-right: 20px;
+        } */
+        ul {
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+            list-style-type: none;
+        }
+
+        div {
+            margin-left: 30%;
+            margin-top: 20%;
+            /* margin: calc(30%,30%); */
+        }
+    </style>
+</head>
+
+<body onload="console.log('Welcome to my home page!');">
+    <nav>
+        <ul id="menu">
+            <li class="item">HTML</li>
+            <li class="item">CSS</li>
+            <li class="item highlight">JavaScript</li>
+            <li class="item">TypeScript</li>
+        </ul>
+    </nav>
+    <div>
+        <h1>DOM(Document Object Model)</h1>
+        <p>THis is the first para of the DOM</p>
+        <h2>DOM this is in heading h2</h2>
+        <p>This is para after the h2 heading</p>
+    </div>
+    <p id="demo">Hello</p>
+    <p id="demo2">VIkas </p>
+    <h3>Vikas Prajapati</h3>
+
+    <!-- <label for="ok">
+        <input type="radio" name="rate" value="OK" id="ok"> OK
+    </label>
+    <label for="good">
+    <input type="radio" name="rate" value="Good"> Good
+</label>
+<label for="very-good">
+    <input type="radio" name="rate" value="Very Good" id="very-good"> Very Good
+</label>
+ -->
+
+
+    <script>
+        //// the below code load after the all condole log loads
+        // window.onload = () => {
+        //     console.log(`Welcome to my Home Page`)
+        // }
+
+
+        console.log("Selecting Elements===> getElementByID, getELementByClassName,getElementByTagName,querySelector")
+
+        document.getElementById('demo2').innerHTML = "<i>Web Developer</i>";              //get eleemnt by their IDs
+
+
+
+        const menu = document.getElementById('menu')
+        let items = menu.getElementsByClassName('item');
+        let data = [].map.call(items, (item) => item.textContent);
+        console.log(data);
+
+        document.querySelector('#demo').innerHTML = "Vikas";
+        let allitems = document.querySelectorAll('.item');
+        console.log(allitems);
+        // allitems.forEach((val)=>console.log(val));
+        for (let i = 0; i <= allitems.length; i++) {
+            console.log(allitems[i]);
+        }
+        console.log(items.length)
+        console.log(allitems.length)
+
+
+
+        document.getElementsByTagName('h3')[0].innerHTML = "Its Using the TagName"
+
+    </script>
+</body>
+
+</html>

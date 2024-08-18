@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>functions</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <h1>functions</h1>
+
+
+
+    <script>
+           // // function definition
+            function introduceME(){
+                console.log("Hi,");
+                console.log(`I'm Vikas`);
+                console.log(`I am a Web Developer`)
+            }
+
+
+            //function call
+            introduceME()
+
+
+
+        // function definition
+           function introduceME(){
+            console.log("Hi,");
+            console.log(`I'm Vikas`);
+            console.log(`I am a Web Developer`);
+            return `Hi it's Vikas Intro`
+        }
+
+
+        //function call
+        let returnvalue=introduceME()               // hrer we are storing the return value from function
+        // console.log(returnvalue);
+
+
+
+
+
+
+        // // function definition
+        function introduceME(username,profession="Engineer") {
+            console.log(profession);
+            console.log("Hi,");
+            console.log(`I'm ${username || "Unknown"}`);        // if username not passed then it take String value 'Unknown'.
+            console.log(`I am a ${profession}`)
+        }
+
+
+        //function call
+        introduceME("Vikas","web developer");
+        console.log("***********************")
+
+        introduceME("Akash","ML Engineer");
+        console.log("***********************")
+
+        introduceME("David","Full stack Developer");
+        console.log("***********************")
+
+        introduceME("Brook");        // here i didnt pass the another argument so it takes default value.
+        console.log("***********************")
+
+        
+        introduceME("");
+        console.log("***********************")
+
+
+
+
+        function addTwoNumber(a,b){
+            return a+b
+        }
+      </script>
+
+
+</body>
+
+</html>

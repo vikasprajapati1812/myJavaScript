@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manging Style</title>
+    <style>
+        /* .head{
+    height: 200px;
+    width: 200px;
+   
+} */
+    </style>
+</head>
+
+<body>
+    <div class="head" style="background-color: steelblue;color: green; height:300px;width: 300px;">
+        <h1> heading inside the div</h1>
+        <p> this is para inside div</p>
+    </div>
+
+    <p id="content">JavaScript Setting Style Demo!</p>
+
+
+    <ul id="menu" class="vertical main">
+        <li>Homepage</li>
+        <li>Services</li>
+        <li>About</li>
+        <li>Contact</li>
+     </ul>
+
+    <script>
+
+        ////style.cssText override the existing inline style
+        
+        let head = document.querySelector('.head');
+        // head.style.cssText = "color:red;background-color:yellow"
+
+
+
+        //// OR you can use the setAttribute() method:
+
+        // head.setAttribute('style', 'color:white;background-color:black');
+
+
+
+
+        let p = document.querySelector('#content');
+        // p.style.color = 'red';
+        // p.style.fontWeight = '900';  //bold
+        // p.style.fontSize='25px';
+        // p.style.backgroundColor="steelblue"
+        // p.style.marginLeft="50px"
+
+
+        //// To get all styles applied to an element
+        // console.log(window.getComputedStyle(p));
+
+
+
+
+        //// className
+
+        let menu=document.querySelector("#menu");
+        console.log(menu.className);
+        // console.log(menu.classList);    //
+
+        //// adding a new class 
+
+        menu.className +=" vikas";
+        console.log(menu.className);
+
+
+        //// but we have to use classList to add new classes
+
+        menu.classList.add("vikas2");
+        console.log(menu.className); 
+
+
+        //// remove class
+
+        // menu.classList.remove("vikas");
+
+        //// can remove the multiple classes at once
+
+        menu.classList.remove('vikas','vikas2')  /// ["vikas","vikas2"] doesnot work 
+
+        ////replace the class with another class
+
+        menu.classList.replace('main','info')
+
+    </script>
+</body>
+
+</html>

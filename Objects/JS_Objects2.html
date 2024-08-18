@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS Objects</title>
+  </head>
+  <body>
+    <pre>
+    Some solutions to display JavaScript objects are:
+
+Displaying the Object Properties by name
+Displaying the Object Properties in a Loop
+Displaying the Object using Object.values()
+Displaying the Object using JSON.stringify()
+    </pre>
+    <h1>const person = { name: "John", age: 30, city: "New York" };</h1>
+    <h2 id="demo"></h2>
+    <h2 id="demo1"></h2>
+    <h2 id="demo2"></h2>
+    
+    <h4>const fruits = {Bananas:300, Oranges:200, Apples:500};</h4>
+    <h2 id="demo4"></h2>
+
+    <h4>Stringify</h4>
+    <p id="demo5">
+        
+    </p>
+    <script>
+      // Create an Object
+      const person = {
+        name: "John",
+        age: 30,
+        city: "New York",
+        zip: 123456,
+        occupation: "Dermotologist",
+      };
+
+      // Display Properties
+      document.getElementById("demo").innerHTML =
+        person.name + ", " + person.age + ", " + person.city;
+
+      // using the for loop         // iteration through the person object
+      let text = "";
+      for (let x in person) {
+        text += person[x] + " ";
+      }
+
+      // Display the Text
+      document.getElementById("demo1").innerHTML = text;
+
+      //  Using the Object.values()
+      const myArray = Object.values(person);
+
+      // Display the Array
+      document.getElementById("demo2").innerHTML = myArray;
+
+      ///////////////////////////////////////////////
+      const fruits = { Bananas: 300, Oranges: 200, Apples: 500 };
+
+      let text2 = "";
+      for (let [fruit, amount] of Object.entries(fruits)) {
+        text2 += fruit + ": " + amount + "<br>";
+      }
+
+      document.getElementById("demo4").innerHTML = text2;
+
+
+
+      /////////////////stringify//////////////////
+      const person2 = {
+  name: "John",
+  age: 30,
+  city: "New York"
+};
+
+// Display JSON
+document.getElementById("demo5").innerHTML = JSON.stringify(person2);
+    </script>
+  </body>
+</html>

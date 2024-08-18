@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event_Bubbling and Capturing</title>
+    <style>
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 400px;
+            width: 400px;
+            background-color: red;
+        }
+
+        .item {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 300px;
+            width: 300px;
+            background-color: blue
+        }
+
+        .box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 200px;
+            width: 200px;
+            background-color: green
+        }
+
+        p {
+            height: 100px;
+            width: 100px;
+            background-color: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="item">
+            <div class="box">
+                <p>
+                    Some Content hrer.....
+                </p>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+
+        const container = document.querySelector(".container");
+        const item = document.querySelector(".item");
+        const box = document.querySelector(".box");
+        const para = document.querySelector("p");
+
+
+        window.addEventListener('click', () => {
+            console.log("6. Window was clicked")
+        }
+            // ,{capture:true}
+        )
+
+        document.body.addEventListener('click', () => {
+            console.log("5. Body was clicked")
+        }
+            // ,{capture:true}
+        )
+        container.addEventListener('click', () => {
+            console.log("4. conatiner was clicked")
+        }
+            // ,{capture:true}
+        )
+
+        item.addEventListener('click', (e) => {
+            console.log("3. Item was clicked");
+            // e.stopPropagation()
+
+
+
+
+        }
+            // ,{capture:true}
+        )
+
+        box.addEventListener('click', () => {
+            console.log("2. Box was clicked")
+        }
+            // ,{capture:true}
+        )
+
+        para.addEventListener('click', () => {
+            console.log("1. PARA was clicked")
+        }
+            // ,{capture:true}
+        )
+
+
+
+
+    </script>
+</body>
+
+</html>

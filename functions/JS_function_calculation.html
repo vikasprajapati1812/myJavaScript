@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcfunc</title>
+    <style>
+        
+
+
+    </style>
+</head>
+
+<body>
+    <h1>Calculation</h1>
+    <div class="boxes">
+        <div class="box">
+            <pre>
+    function add(a, b) {
+            return `the addition of the numbers is= ${a + b}`
+        }
+        function sub(a, b) {
+
+            return `the substraction of the numbers is= ${a - b}`
+        }
+        function mul(a, b) {
+            return `the multiply of the numbers is= ${a * b}`
+        }
+        function division(a, b) {
+            return `quotient after division is = ${a / b}`
+        }
+        function square(a, b) {
+            return `square of a =${a ** 2} and b= ${b * b}`
+        }
+        function cube(a, b) {
+            return `cube of a =${a ** 3} and b= ${b * b * b}`
+        }
+        console.log(add(25, 6));
+        console.log(sub(25, 6));
+        console.log(mul(25, 6));
+        console.log(division(25, 6));
+        console.log(square(25, 6));
+        console.log(cube(25, 6));
+            </pre>
+        </div>
+        
+    </div>
+
+    <script>
+
+
+
+
+        function add(a, b) {
+            return `the addition of the numbers is= ${a + b}`
+        }
+        function sub(a, b) {
+
+            return `the substraction of the numbers is= ${a - b}`
+        }
+        function mul(a, b) {
+            return `the multiply of the numbers is= ${a * b}`
+        }
+        function division(a, b) {
+            return `quotient after division is = ${a / b}`
+        }
+        function square(a, b) {
+            return `square of a =${a ** 2} and b= ${b * b}`
+        }
+        function cube(a, b) {
+            return `cube of a =${a ** 3} and b= ${b * b * b}`
+        }
+        console.log(add(25, 6));
+        console.log(sub(25, 6));
+        console.log(mul(25, 6));
+        console.log(division(25, 6));
+        console.log(square(25, 6));
+        console.log(cube(25, 6));
+
+
+
+
+        console.log("----------------------------------------------------")
+        console.log("-------------By -Using Callback Function-------------")
+
+
+        function calculate(a, b, callback) {
+            console.log(`numbers are ${a} and ${b}`)
+            return callback(a, b)
+
+        }
+        function add(a, b) {
+            return `the addition of the numbers is=${a+b}`
+        }
+        function sub(a, b) {
+
+            return `the substraction of the numbers is=${a-b}`
+        }
+        function mul(a, b) {
+            return `the multiply of the numbers is=${a*b}`
+        }
+        function division(a, b) {
+            return `quotient after division is =${a/b}`
+        }
+        function square(a, b) {
+            return `square of a =${a**2} and b=${b*b}`
+        }
+        function cube(a, b) {
+            return `cube of a =${a**3} and b=${b*b*b}`
+        }
+        console.log(calculate(24, 6, division))
+        console.log(calculate(244, 6, add))
+        console.log(calculate(24, 6, sub))
+        console.log(calculate(244, 6, mul))
+        console.log(calculate(24,5,square))
+        console.log(calculate(24,5,cube))
+
+
+
+
+
+
+
+        function myDisplayer(some) {
+            console.log(some);
+        }
+
+        function myCalculator(num1, num2, myCallback) {
+            let sum = num1 + num2;
+            myCallback(sum);
+        }
+
+        myCalculator(5, 5, myDisplayer);
+
+
+
+        const points = [40, 100, 1, 5, 25, 10];
+        console.log(points);
+        console.log(points.sort())    // it wiil not work properly in the arrays
+        points.sort(function (a, b) { return a - b });
+        console.log(points);
+
+        const fruits=["Apple","Mango","Banana","Guava","Kiwi"];
+        console.log(fruits);
+        console.log(fruits.sort());
+
+
+    </script>
+</body>
+
+</html>

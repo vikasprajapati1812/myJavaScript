@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<div id="myDiv">This is my div.</div>
+
+<script>
+const URL = "http://localhost:3000/users";
+
+  fetch(URL)
+    .then((res) => res.json())
+    .then(([d,e,g,f]) => {
+        console.log(d);
+        console.log(e);
+        console.log(g);
+        console.log(f);
+        console.log(d.id);
+
+        // console.log(d[0].id)
+        // console.table(d);
+        // const arr=data;
+        // console.log(typeof arr)
+
+        
+    })
+const fruits=['apple','mango','guava'];
+const a=fruits[0];
+const b=fruits[1];
+const c=fruits[2];
+console.log(a)
+const [p,q,r]=fruits;
+console.log(p,q,r)
+    
+</script>
+
+</body>
+</html>

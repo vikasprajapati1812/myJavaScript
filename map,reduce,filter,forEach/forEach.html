@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Methods</title>
+    <style>
+*{margin: 0;
+padding: 0;
+box-sizing: border-box;
+background-color: aquamarine;}
+
+    </style>
+</head>
+
+<body>
+    <h1>forEach Methods</h1>
+    <h2>
+        <pre>The forEach() method calls a function for each element in an array.
+        The forEach() method is not executed for empty elements.
+    Can't store the value 
+    for eg.
+    let output=arr.forEach(callbackfunctionname)  // cant store like this </pre>
+    </h2>
+
+    <h1>Map  Methods</h1>
+    <pre><h2>map() creates a new array from calling a function for every array element.
+
+        map() does not execute the function for empty elements.
+        
+        map() does not change the original array.</h2></pre>
+
+
+
+    <script>
+        
+        // let arr=[12,23,3,45,57,8,78,34];
+        // arr.forEach(myfunc)
+
+        // function myfunc(val,idx,array1){
+        //     console.log(val,idx,array1)
+        // }
+
+        
+        
+        // let arr=[12,23,34,45,65,76];
+        // arr.forEach(myfunc1);
+
+        // function myfunc1(val,idx,array){
+        //     console.log(val*2);
+        //     }
+
+
+        ////               sum of squares of the array elements
+        // let square=0
+        // let ar=[12,23,34,45,65,76];
+        // console.log(ar)
+        // ar.forEach(myfunc1);
+
+        // function myfunc1(val,idx,array){
+        //    square= square+(val*val);
+        // }
+        // console.log(square);    // here wondering why square is shown because in function we isnt declare it so it become Global variable
+
+        
+        // console.log(76*76);
+
+
+
+
+        /////////////////   Map Method  /////////////////////
+
+       let maparr=["bob","Tim","David","Jack"];
+       let sqrmap= maparr.map(mapfunc);
+
+        function mapfunc(val){
+            return val.toUpperCase();
+          //return val.toString().toUpperCase();   // if the both are uncommented then the after first return second will not be executed
+        }
+        console.log(sqrmap,typeof sqrmap);
+
+
+
+        let numbs=[12,24,11,6,33,4,80];
+        let numbsqr=numbs.map(squaremap);
+        function squaremap(val,idx,array){
+            return val*val;
+        }
+        console.log(numbs," square of it is==>",numbsqr);
+
+
+
+
+
+
+        
+
+        let marks=[68,79,80,98,86,76];
+        let passmarks=marks.map(funct);
+        function funct(val,idx,arr){
+            console.log("index=",idx,"Value is=",val);
+            return val        ///removing return, it will pass undefined in passmarks
+            }
+            console.log(passmarks);
+//making above program using the arrow function
+
+//         let marks=[68,79,80,98,86,76];
+// let markspasss=marks.map((val,idx)=>{console.log("index=",idx,"Value at this index is=",val)})
+
+
+
+////////////////  filter method////////
+
+
+
+// console.log(num.sort());
+// console.log(num.reverse());
+// console.log(typeof num.reverse());
+
+var num=[23,34,45,56,67,78,89,76,54,43,32];
+console.log(num);
+let filternum=num.filter(myfilter);
+function myfilter(val,idx,arr){
+    return val>50;
+}
+console.log(filternum);
+
+
+
+
+// Array.reduce   
+// The reduce() method runs a function on each array element to produce (reduce it to) a single value.
+// The reduce() method works from left-to-right in the array. See also reduceRight().
+// it takes the 4 parameter ====>(total, value, index, array)
+
+var num=[23,34,45,56,67,78,89,76,54,43,32];
+let sumnum=num.reduce(reducefunc);
+function reducefunc(res,curr){
+    return res+curr
+}
+console.log(sumnum);    
+
+
+
+var num=[23,34,45,56,67,78,89,76,54,43,32];
+let foravgsum=num.reduce(reducefunct);
+function reducefunct(res,curr){         //reducefunct(total,value,index,array) then return total+value
+ return res+ curr;
+}
+console.log("sum is=",foravgsum,"the average marks is=",foravgsum/num.length  ,"round of =",Math.round(foravgsum/num.length))
+console.log(`sum is= ${foravgsum} the average marks is= ${foravgsum/num.length} round of = ${Math.round(foravgsum/num.length)}`) // using string literal
+
+
+
+// --------------------------------------------------------
+//greater value using a function reduce
+
+// var num=[23,34,45,56,201,67,78,89,76,54,43,32];
+// let greatnum=num.reduce(reducefunc1);
+// function reducefunc1(res,curr){
+//     return  res>curr?res:curr
+// }
+// console.log(greatnum);    
+
+
+var num=[23,34,45,56,201,67,78,89,76,54,43,32];
+let greatnum=num.reduce(function reducefunc1(res,curr){          
+    return  res>curr?res:curr
+});
+console.log(greatnum);    
+
+var num=[23,34,45,56,201,67,78,89,76,54,43,32];
+let greatnum1=num.reduce((res,curr)=>{         // using the arrow function
+    return  res>curr?res:curr
+});
+console.log(greatnum1);   
+
+
+// --------------------------------------------------------
+
+
+
+
+//smaller value using a function reduce
+
+var num=[23,34,45,56,201,67,78,89,76,54,43,32];
+let smallnum=num.reduce(reducefunc2);
+function reducefunc2(res,curr){
+    return  res<curr?res:curr
+}
+console.log(smallnum);    
+
+    </script>
+</body>
+
+</html>

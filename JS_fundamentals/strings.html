@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>strings</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <h1>String</h1>
+    <p>Everything about the string is written here....</p>
+
+
+
+
+
+
+
+    
+    <script>
+        console.log("vikas");
+        let str="hello world"     ;      //   strings in double  quotes
+        let str1='hello hello'   ;       //   strings in single quotes
+        let str2=` good evening`;        // string in backticks
+        console.log(str1,str1, str2);
+        console.log(str2);
+
+
+        // string in double quotes  with single quotes inside
+
+    let strn=" hello everyone 'good to see you all' here.";
+    console.log(strn);
+
+
+    // escape characters '\r\n' line break , tab--> '\t' , backslash-->  '\'   
+    let strn1=" hello everyone I\'m  vikas \n 'good to see you all' here." ;     // here is use of backticks inside the double quotes
+    console.log(strn1);
+
+
+    // let str11=' hello everyone 'good to see you all' here.'     // Error thown //   Cant insert single quotes inside single quote
+    // console.log(str11)         
+
+
+    // template literals inside the expression
+
+    let firstName ="vikas";
+    let message=`Hi I\'m  ${firstName}` ;
+    console.log(message);
+
+
+
+    // getting the length of the string using the property length
+
+    let fullName="Vikas Prajapati";    // it also counts the space 
+    let len=fullName.length;
+    console.log(len);
+
+
+    //Accessing the characters of the string;;;
+
+    let first="Javascript CodeS";
+    
+    console.log(first[0]) ;       // accessing the 1st character because the indexing start with the 0
+
+    console.log("length of the  string",first.length," last character is " ,first[first.length-1]);   // here length-1 is the done because indexing start with 0
+
+
+
+
+    // Concatenating the the strings using the +  opreators
+
+    let fname="Vikas" ; 
+    let lname="Prajapati" ;
+
+    console.log(fname+lname)  ; // see no space there
+
+    console.log(fname+ " " + lname);
+
+
+    // Concatenating the the strings using the += opreators
+
+ let className='btn' ;
+ className += ' btn-primary'   ;         // here space i have provided
+ className += ' bg-danger' ;
+ console.log(className) ;
+
+
+// Converting the values to strings---> using ----> String(n),  n.toString()  ,  '' + n
+
+let sd=false;
+let sdd=sd.toString();
+console.log(sdd ,"  type of sd now", typeof sdd);     //false     and  sdd is string now
+
+let sddf=Boolean(sdd);
+console.log(sddf);    // true
+
+
+//using the String(n)
+
+let a=55;
+console.log(a, "typeof a", typeof a);
+let aa=String(a);
+console.log(aa, "Now type of a= ", typeof aa);
+
+
+
+//Comparing the Strings    ---> it takes the order of the dictionary on comparision with each other
+// comparision operators --->   > , < ,<= ,>=  and == 
+
+let res="a" <"b";
+console.log(res);  // true
+
+
+let result="y">"z";
+console.log(result);  // false
+
+let result1="a"<"B";
+console.log(result1);   //false 
+ 
+    </script>
+</body>
+</html>

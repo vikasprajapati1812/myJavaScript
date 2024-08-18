@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date</title>
+    <style>
+        body {
+            background-color: rgba(127, 255, 212, 0.404);
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Date</h1>
+    <h2>
+        <pre>
+        constructor:    The constructor property returns the function that created the Date prototype
+                        var d= new Date();
+                        let text=d.constructor;
+        Date.parse:  parse() parses a date string and returns the time difference since January 1, 1970.
+                     parse() returns the time difference in milliseconds.
+      
+        getDate()           The getDate() method returns the day of the month (1 to 31) of a date.
+      
+        getDay()        method returns the day of the week (0 to 6) of a date.
+                        Sunday = 0, Monday = 1, ... (See below):
+        getFullYear()        return the year of the specific date "YYYY"
+      
+        getHours() ====>     get the hours from the specific date
+
+        
+        getMinutes()===>    get the minutes of the specific date.
+
+        getSeconds()===>    returns the seconds of the specific date.
+        
+        getMilliseconds() returns the milliseconds (0 to 999) of a specific date.
+
+        getMonth()====>     return the months in no.   Jan=0 feb=1 ..... dec=11
+        
+        getTime()           returns the number of milliseconds since January 1, 1970 00:00:00.
+
+        Date.now()           returns the number of milliseconds since January 1, 1970.
+                        const minute = 1000 * 60;
+                        const hour = minute * 60;
+                        const day = hour * 24;
+                        const year = day * 365;
+                        let years = Math.round(Date.now() / year);
+
+                        /////////////////////////////////////////////////////////////
+                        /////////////   Set methods for Date  //////////
+
+        setDate()           sets the day of the month of a date.
+
+
+    </pre>
+    </h2>
+    <script>
+        var date = Date();
+        console.log(date, typeof date);
+
+
+        var d = new Date();
+        console.log(d, typeof d);             // new converts the date into object type
+
+
+        /////       Parse  ////
+        var date = Date();
+        console.log(Date.parse(date));    //returns the difference in milliseconds from the jan 01 1970
+
+
+        //Constructor//     The constructor property returns the function that created the Date prototype.
+
+        var d = new Date();
+        let text = d.constructor;
+        console.log(text);
+
+
+        /////   getDate()           The getDate() method returns the day of the month (1 to 31) of a date.
+
+        var d = new Date("July 21, 1984 01:23:00");
+        console.log(d.getDate());
+
+
+
+        /////        getDay()        method returns the day of the week (0 to 6) of a date.  // if 25 is there such values divide by 7 then remainder no. is day
+        // sunday =0  monday=1
+        var d = new Date();
+        console.log(d.getDay());
+
+
+        // getFullYear()   ====> returns the full year of a date.
+
+        console.log(d.getFullYear());
+
+
+        //  getHours() ====> get the hours from the specific date
+
+        console.log(d.getHours());
+
+        // getMinutes()===> get the minutes of the specific date
+        console.log(d.getMinutes());
+      
+      
+        // getSeconds()===> returns the seconds of the specific date
+        console.log(d.getSeconds());
+
+        // getMilliseconds() returns the milliseconds (0 to 999) of a specific date.
+        console.log(d.getMilliseconds());
+
+
+        //getMonth()  returns the month in numbers 0-11
+        //    january=0 february 1 March 2
+
+        console.log(d.getMonth());
+
+        // if wanna get the month in Name follow below
+       var month=["january","February","March","April","May","June","July","August","September","November","December"];
+       console.log(month[d.getMonth()]);
+
+
+       ///          getTime()     returns the number of milliseconds since January 1, 1970 00:00:00.
+       console.log(d);
+       console.log(d.getTime());
+
+
+       // Date.now() returns the number of milliseconds since January 1, 1970.
+
+       console.log(Date.now());
+       console.log(new Date());
+
+
+
+       console.log("Set Methods for the date which is similar to the get methods");
+
+
+       // setDate()  Set the day of the month of the date.
+
+       var d = new Date("July 21, 1983 01:15:00");
+        console.log(d.setDate(15));                  ///not working in correct way
+
+
+        // setFullYear()   seththe year of the date.
+        //can also set the month and day.
+
+        var e = new Date("July 21, 1983 01:15:00");
+        console.log(e.setFullYear(2020));
+
+        ////    setMonth()
+
+        var d =new Date();
+console.log(d.setMonth(9));
+    </script>
+</body>
+
+</html>

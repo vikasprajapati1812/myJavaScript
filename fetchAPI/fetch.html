@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetching the API data</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <h1>Fetch API</h1>
+    <h2>Different Methods---</h2>
+    <script>
+        const URL="https://jsonplaceholder.typicode.com/todos/1"
+        const URL2="https://jsonplaceholder.typicode.com/posts"
+        
+        // fetch(URL).then((res)=>res.json())
+        // .then((data)=>{
+        //     console.log(data)
+        //     console.log(data.id)
+        //     console.log(data.userId)
+        //     console.log(data.title)
+        //     console.log(data.completed)
+
+        // })
+
+        // fetch(URL2).then((res)=>res.json())
+        // .then((dataa)=>{
+        //     console.log(dataa[0])
+        //     console.log(dataa[0].id)
+        //     console.log(dataa[0].userId)
+        //     console.log(dataa[0].title)
+        //     console.log(dataa[0].completed)  //undefined  -->completed is not in property
+
+        // })
+
+
+        fetch('https://jsonplaceholder.typicode.com/todos/5',{
+            method:'PUT',
+            headers:{'content-type' :'apllication/json'},
+            body:JSON.stringify({
+                userId:400,
+                id:5,
+                title:"Learn PUT method in  Fetch API",
+                completed:false
+            })
+        }).then((res)=>res.json())
+        .then((postdata)=>console.log(postdata));
+
+        // fetch('https://jsonplaceholder.typicode.com/todos').then((res)=>res.json()).then((newdata)=>{
+        //     console.log(newdata)
+        // })
+    </script>
+
+
+</body>
+</html>

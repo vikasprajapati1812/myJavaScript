@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mouse Events</title>
+    <style>
+
+
+    </style>
+</head>
+<body>
+    
+<h1>
+    addEventListener   Mouse events
+</h1>
+<button type="button" id="btn">Hover Me, Click Me</button>
+<p id="demo"></p>
+    <script>
+
+const btn=document.querySelector('#btn');
+const demo=document.querySelector('#demo');
+btn.addEventListener('click',function(){
+    demo.innerHTML +='You Clicked button <br>';
+})
+
+btn.addEventListener('mouseover',function(){
+    demo.innerHTML +='Moused over <br>';
+})
+btn.addEventListener('mouseout',function(){
+    demo.innerHTML +='Moused out <br>';
+})
+
+// btn.addEventListener('mousemove',function(){
+//     demo.innerHTML +='Moused Moving <br>';
+// })
+
+btn.addEventListener('dblclick',function(){
+    demo.innerHTML +='Mouse doubled click <br>';
+})
+    
+    </script>
+</body>
+</html>

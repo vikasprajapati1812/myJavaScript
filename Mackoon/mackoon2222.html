@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mackoon</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        text-align: center;
+      }
+      h2{
+        text-shadow: 2px 4px 20px red;
+      }
+      .addElement {
+        display: none;
+      }
+      table {
+        border: 1px solid #ddd;
+        margin-inline: auto;
+        margin-block: 2.5rem;
+        border-collapse: collapse;
+      }
+      tr:hover {
+        background-color: #d6eeee;
+        color: black;
+        
+    }
+    tr {
+        border-bottom: 1px solid black;
+        text-align: center;
+      }
+      td,th {
+        padding-top: 1rem;
+      }
+      .input-fields {
+        display: none;
+      }
+      input{
+        padding: 10px;
+        font-size: 1.1rem;
+        border-radius: 5px;
+        outline: none;
+          }
+          button{
+            padding: 5px 10px;
+          }
+
+    .dark{
+        background-color: black;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <button id='btn'>Dark Mode/Light Mode</button>
+    <h2>URL Data in Table format</h2>
+    <div class="manipulate">
+      <div class="input-fields">
+        <input type="number" id="idd" placeholder="ID" required />
+        <input type="text" id="name" placeholder="Name" required />
+        <input type="text" id="username" placeholder="Username" required />
+        <input type="email" id="email" placeholder="Email" required />
+      </div>
+      <button id="add-save">Add</button>
+      <button id="delete">Delete</button>
+      <button id="update">Update</button>
+    </div>
+    <table style="width: 100%" id="tableBody">
+      <tr>
+        <th>id</th>
+        <th>user</th>
+        <th>username</th>
+        <th style="width: 40%">email</th>
+      </tr>
+    </table>
+
+    <script>
+        const btn=document.querySelector('#btn')
+        const body=document.querySelector('body');
+        const table=document.querySelector('table')
+
+        btn.addEventListener('click',()=>{
+            body.classList.toggle('dark');
+            table.style.border="2px solid white"
+        })
+      const URL = "http://localhost:3000/users";
+
+      // Function to fetch and display data
+      function fetchData() {
+        fetch(URL)
+          .then((res) => res.json())
+          .then((data) => {
+            const tableBody = document.querySelector("#tableBody");
+            tableBody.innerHTML = `
+            <tr>
+              <th>id</th>
+              <th>user</th>
+              <th>username</th>
+              <th>email</th>
+            </tr>
+          `;
+            data.forEach((element) => {
+              const rowElement = document.createElement("tr");
+              rowElement.innerHTML = `
+              <td>${element.id}</td>
+              <td>${element.name}</td>
+              <td>${element.username}</td>
+              <td>${element.email}</td>
+            `;
+              tableBody.appendChild(rowElement);
+            });
+          });
+      }
+
+      // Fetch data initially
+      fetchData();
+
+      const addSaveButton = document.getElementById("add-save");
+      const inputFields = document.querySelector(".input-fields");
+
+      addSaveButton.addEventListener("click", (evt) => {
+        if (addSaveButton.textContent === "Add") {
+          // Show input fields and change button text to "Save"
+          inputFields.style.display = "block";
+          addSaveButton.textContent = "Save";
+        } else if (addSaveButton.textContent === "Save") {
+          // Validate input fields
+          const id = document.getElementById("idd").value;
+          const name = document.getElementById("name").value;
+          const username = document.getElementById("username").value;
+          const email = document.getElementById("email").value;
+
+          if (!id || !name || !username || !email) {
+            alert("All fields are required.");
+            return; // Before sending the POST request, it checks if any of the input fields (id, name, username, email) are empty. If any field is empty, an alert is shown, and the function returns early to prevent the POST request.
+          }
+
+          const newUser = {
+            id: id,
+            name: name,
+            username: username,
+            email: email,
+          };
+
+          fetch(URL, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(newUser),
+          })
+            .then((res) => res.json())
+            .then((data) => {
+              console.log("User added:", data);
+              fetchData(); // Refresh the table
+
+              // Clear and hide input fields, change button text to "Add"
+              document.getElementById("idd").value = "";
+              document.getElementById("name").value = "";
+              document.getElementById("username").value = "";
+              document.getElementById("email").value = "";
+              inputFields.style.display = "none";
+              addSaveButton.textContent = "Add";
+            });
+        }
+      });
+
+      // Delete user
+      document.getElementById("delete").addEventListener("click", () => {
+        const userIdToDelete = prompt("Enter the ID of the user to delete:");
+
+        fetch(`${URL}/${userIdToDelete}`, {
+          method: "DELETE",
+        }).then((res) => {
+          if (res.ok) {
+            console.log(`User with ID ${userIdToDelete} deleted`);
+            fetchData(); // Refresh the table
+          } else {
+            console.error("Failed to delete user");
+          }
+        });
+      });
+
+      // Update user
+      document.getElementById("update").addEventListener("click", () => {
+        const userIdToUpdate = prompt("Enter the ID of the user to update:");
+        const name = prompt("Enter new name:");
+        const username = prompt("Enter new username:");
+        const email = prompt("Enter new email:");
+
+        const updatedUser = {
+          name: name,
+          username: username,
+          email: email,
+        };
+
+        fetch(`${URL}/${userIdToUpdate}`, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(updatedUser),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log("User updated:", data);
+            fetchData(); // Refresh the table
+          });
+      });
+    </script>
+  </body>
+</html>

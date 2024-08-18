@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrays</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <h1>Arrays</h1>
+    <p> an array is an ordered list of values. Each value is called an element specified by an index:</p>
+    <b><pre>A JavaScript array has the following characteristics:
+
+       1. First, an array can hold values of mixed types. For example, you can have an array that stores elements with the types number, string, boolean, and null.
+        2. Second, the size of an array is dynamic and auto-growing. In other words, you don’t need to specify the array size up front.</pre>
+    </b>
+
+
+
+    <script>
+        //Creating the array  using the constructor Array()
+
+        let score=new Array();     // this is the array with the xero elements
+        // the type of the array is ----> object
+
+        console.log(typeof(score));
+
+
+
+        //declaring arrays with some elements
+
+        let scores=new Array(2,5,77,34,5,6);
+        console.log("Array==>",scores, "typeof array==>", typeof scores); // here type is object
+
+let scoress=Array(2,5,77,34,5,6);
+        console.log("Array==>",scoress, "typeof array==>", typeof scoress); // here type is object
+
+
+
+        //declaring using the [ ]
+
+        let mark=[];
+        console.log(mark);   // crearting the empty array
+
+        let marks=[55,60,70,65,56,45];
+        console.log(marks, typeof marks)
+        
+// delcaring the array with the no. of elements
+        let athletes = new Array(3); // creates an array with initial size 3
+let scor = new Array(1, 2, 3,4,5); // create an array with three numbers 1,2 3
+let color = new Array('Red'); // creates an array with one element 'Red'
+
+
+console.log(athletes);
+console.log(scor);
+console.log(color);
+
+
+
+//ACcessing the javascript arrays elements      using arrayName[Index]
+
+// supppose the array is 
+let marvel=['captainAmerica','ironMan','hulk', 'spiderMan']
+// at index        0            1        2          3
+
+console.log(marvel);
+console.log(marvel.length);  // return lenght of array
+console.log(marvel[0]);     // return the captainAmerica
+console.log(marvel[2]);     // return the hulk
+console.log(marvel[3]);     // return the spiderMan
+
+
+console.log(marvel[-3]);    //return "undefined" as we cant use the negative indexing
+console.log(marvel[4]);     // Return "undefined"  since the value at that index is not present
+
+
+
+
+// Basic opreations on the array ----> push pop shift unshift
+
+let marvels=["Thor","Wolverine","Natasha Romanoff","Gambit" ,"Thanos"];
+
+console.log(marvels,"Length of Marvels Array", typeof marvels);
+
+marvels.push("Loki");  // insert the element in the end of the array
+console.log(marvels,"Length of Marvels Array", typeof marvels);
+
+marvels.pop();          //removes the last element of the array
+console.log(marvels,"Length of Marvels Array", typeof marvels);
+
+marvels.unshift("Loki");   // add loki at the start of the array
+console.log(marvels,"Length of Marvels Array", typeof marvels);
+
+marvels.shift();   // remove loki at the start of the array
+console.log(marvels,"Length of Marvels Array", typeof marvels);
+
+
+
+//Checking the this is array or not------> using the Array.isArray();
+
+let Marvels=["Thor","Wolverine","Natasha Romanoff","Gambit" ,"Thanos"];
+
+console.log(Array.isArray(Marvels));  // returns True
+
+
+
+//Finding the Index of the array elements
+
+console.log(Marvels.indexOf("Gambit"));
+
+
+
+    </script>
+</body>
+</html>

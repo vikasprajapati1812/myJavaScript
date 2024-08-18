@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String Methods</title>
+    <style>
+body{
+    background-color: aquamarine;
+    
+}
+    </style>
+</head>
+<body>
+    <h1>Strings_Methods from w3schools</h1>
+
+<h3>
+    <pre>
+    
+        String length           -----> provide the length of string
+        String at()             -----> gives caharacter at given index
+        String charAt()         -----> Returns cahracter at specified index
+
+        differnece between charAt and at-- in "at" we can also use here -ve index
+
+        String charCodeAt()     ----->The charCodeAt() method returns the code of the character at a specified index in a string:
+                                    The method returns a UTF-16 code (an integer between 0 and 65535).
+
+
+        String [ ]              -----> extracts the parts based on the index values provided(start,end)
+
+        
+        String slice()          -----> extarct the parts depending upon the given index(start , end)
+        String substring()      ----->substring() is similar to slice().
+                                      The difference is that start and end values less than 0 are treated as 0 in substring().
+        String substr()         ----->substr() is similar to slice().
+                                        The difference is that the second parameter specifies the length of the extracted part.
+        
+
+
+        String toUpperCase()    ----->A string is converted to upper case with toUpperCase():
+        String toLowerCase()    ----->A string is converted to upper case with toLowerCase():
+        String concat()         ----->concat() joins two or more strings:
+
+
+
+        String trim()           -----> The trim() method removes whitespace from both sides of a string:
+        String trimStart()      ----->ECMAScript 2019 added the String method trimStart() to JavaScript.
+                                        The trimStart() method works like trim(), but removes whitespace only from the start of a string.
+        String trimEnd()        ----->ECMAScript 2019 added the string method trimEnd() to JavaScript.
+                                        The trimEnd() method works like trim(), but removes whitespace only from the end of a string.
+
+
+        String padStart()       -----> The padStart() method pads a string from the start.
+                                        It pads a string with another string (multiple times) until it reaches a given length.
+        String padEnd()         ----->The padEnd() method pads a string from the end.
+                                        It pads a string with another string (multiple times) until it reaches a given length.
+        String repeat()         ----->The repeat() method returns a string with a number of copies of a string.
+                                        The repeat() method returns a new string.
+                                        The repeat() method does not change the original string.
+        String replace()        ----->The replace() method replaces a specified value with another value in a string:
+
+                                Note:
+                                The replace() method does not change the string it is called on.
+                                The replace() method returns a new string.
+                                The replace() method replaces only the first match
+                                If you want to replace all matches, use a regular expression with the /g flag set. See examples below.
+
+
+        String replaceAll()     ----->The replaceAll() method allows you to specify a regular expression instead of a string to be replaced.
+                                        If the parameter is a regular expression, the global flag (g) must be set, otherwise a TypeError is thrown.
+        String split()          ----->A string can be converted to an array with the split() method:
+                                        text.split(",")    // Split on commas
+                                        text.split(" ")    // Split on spaces
+                                        text.split("|")    // Split on pipe
+                If the separator is "", the returned array will be an array of single characters:
+                If the separator is omitted, the returned array will contain the whole string in index [0].
+        </pre>
+</h3>
+
+<h3><pre>Extracting String Characters
+    There are 4 methods for extracting string characters:
+    
+    The at(position) Method
+    The charAt(position) Method
+    The charCodeAt(position) Method
+    Using property access [] like in arrays</pre></h3>
+
+    <h3><pre>Extracting String Parts
+        There are 3 methods for extracting a part of a string:
+        
+        slice(start, end)
+        substring(start, end)
+        substr(start, length)</pre></h3>
+
+    <h2><pre><i>
+        Note: 
+            All string methods return a new string. They don't modify the original string.
+
+        Formally said:
+
+            Strings are immutable: Strings cannot be changed, only replaced.
+    </i></pre></h2>
+    
+    <script>
+        
+console.log("String Methods ---> ");
+
+let lang="JavaScript";
+console.log(lang.at(4));        // returns S          // in "at" we can also use here -ve index
+console.log(lang.at(-6))        // returns S
+
+console.log(lang.charAt(4));  // returns S
+
+console.log(lang.charCodeAt(4));   // Returns the code of character at specified index   (a UTF-16 code )
+
+let text = "HELLO WORLD";
+let char = text[0];            // this is also a way to extract the character at specified index.
+console.log(char);
+
+
+let text1="HELLO WORLD";
+text1[0]="A";             // It is read only. str[0] = "A" gives no error (but does not work!)
+console.log(text1);      // it is not changed. text1 remains same.
+
+
+///////////////    Extracting String Parts
+
+let txt="Apple, Banana, Kiwi, Orange";
+console.log(txt);
+let part1=txt.slice(3,16);    //start and end part both are inclusive.
+console.log(part1);
+
+let part2=txt.slice(3);          // if start is provide only then it takes all after that.
+console.log(part2);
+
+
+console.log(txt.slice(-12));   //negative value is counted from the end of the string;
+
+console.log(txt.slice(-12,-4));   //negative value is counted from the end of the string;
+
+
+console.log(txt.substring(-12,8));      // in this the -ve value is treated as 0
+
+console.log(txt.substr(3,9));   // it says from index 3 takes the next 9 letters.
+
+console.log(txt.substr(3));    // if single value provided then it return the rest of letters till end.
+
+console.log(txt.substr(-12));   // for negative value it takes it as starting point from end and return the rest of letters.
+
+
+
+
+//////
+
+
+console.log(txt);
+console.log(txt.toUpperCase());   // prints the value in upper case.
+console.log(txt.toLowerCase());  // prints the value in lower case.
+
+
+/////  concat() joins two or more strings:
+
+let txt1="Hello";
+let txt2="World";
+console.log(txt1.concat(txt2));
+console.log(txt1.concat(" ",txt2));
+console.log(txt1.concat(" ",txt2, txt));  // can any numbers of the strings can be attached.
+
+
+
+////////////// Trim/////
+
+let language="           Hello JavaScript          ";
+console.log(language.trim());
+
+console.log(language.trimStart());       // cuts the spaces at the start
+
+console.log(language.trimEnd());        // cuts the spaces at the end
+
+
+
+
+/////////////// Padding  ////
+
+// The padStart() method pads a string from the start.
+
+// It pads a string with another string (multiple times) until it reaches a given length.
+let str="5";      
+let padded=str.padStart(4,"0");
+
+console.log(padded);
+console.log(str.padStart(8,"X"));
+
+
+//padStart() is a string method.   to pad a number first it has to be converted it into a string.
+
+let numb=5;
+let numbtext=numb.toString();
+console.log(numbtext.padStart(7,"P"))
+
+
+console.log(numbtext.padEnd(7,"P"))   // padEnd  it pads a string to another string untill it reaches to the given  length.
+
+
+
+
+
+
+//The repeat() method returns a string with a number of copies of a string.The repeat() method returns a new string.The repeat() method does not change the original string.
+
+//string.repeat(count)
+
+let title="Vikas";
+console.log(title.repeat(5));
+
+
+
+
+
+///The replace() method replaces a specified value with another value in a string:
+
+// Note
+// 1.1The replace() method does not change the string it is called on.
+// 2.The replace() method returns a new string.
+// 3.The replace() method replaces only the first match
+// 4.If you want to replace all matches, use a regular expression with the /g flag set. See examples below.
+
+let newtxt="Please visit Asia";
+console.log(newtxt)
+console.log(newtxt.replace("Asia","INDIA"));   // replace is case sensitive . if we have written it like ASIA it wont work.
+
+
+// or we can use regular expression with an /i to flag (insensitive).
+console.log(newtxt.replace(/ASIA/i,"INDIA"));    // it works
+
+
+// To replace all matches, use a regular expression with a /g flag (global match):
+let newtxt1="Please visit Asia,Please visit Asia, Please visit Asia Please visit Asia";
+console.log(newtxt1.replace(/ASIA/i,"India"));   // it replaces the only first ASIA
+
+console.log(newtxt1.replace(/ASIA/g,"India"));   // it wont work as(ASIA is written in capital)
+console.log(newtxt1.replace(/Asia/g,"India"));   // it replaces all
+
+
+
+
+
+
+/////replaceAll/////
+
+let textnew = "I love cats. Cats are very easy to love. Cats are very popular."
+console.log(textnew);
+console.log(textnew.replaceAll("cats","Dogs"));  // it replaces the first one which matches as cas sensitive
+console.log(textnew.replaceAll("Cats","Dogs"));
+console.log(textnew.replaceAll("/Cats/g","Dogs"));  // it is not working ask ma'am
+
+
+
+
+
+
+////// Convreting the string to the Array////
+
+
+
+// a string can be converted to the array using the split
+
+// text.split(",")    // Split on commas
+// text.split(" ")    // Split on spaces
+// text.split("|")    // Split on pipe
+
+
+let neww="I love Javascript,HTML,CSS";
+console.log(neww);
+console.log(neww.split(" "));   // it splits over where there is space.
+console.log(neww.split(""));    // this follow over all the Char of the strings
+console.log(neww.split(","));   // split the string into array where they are seperated by comma
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Object Model MAnipulations</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <style>
+
+
+    </style>
+</head>
+
+<body>
+    <h1>Dom Manipulations</h1>
+    <p>In this div will be append at the end.</p>
+    <ul id="menu">
+    </ul>
+
+    <script>
+        // let div = document.createElement('div');
+        // div.id = 'content';
+        // div.innerHTML = '<h3>CreateElement example</h3>';
+        // div.style.backgroundColor="steelblue"
+        // document.body.appendChild(div);   //add the element at end of given node(append)
+        // let div2=document.createElement('div');
+        // div.className="toPrepend"
+        // div2.innerHTML="This is the prepend div which will add at the start"
+        // document.body.prepend(div2); // add element at teh start of the given node
+
+
+
+
+        ////append a div with h2 inside
+
+        let div = document.createElement('div');
+        div.id = 'content';
+        div.className = 'note';
+        let headh2 = document.createElement('h2');
+        headh2.innerHTML = 'This is h2 heading inside the div';
+        // headh2.textContent='This is h2 heading inside the div';
+        div.appendChild(headh2);
+        document.body.appendChild(div);
+
+
+
+        // let div = document.createElement('div');
+        // div.id = 'content';
+        // div.className = 'note';
+
+        // // create a new heading and add it to the div
+        // let h2 = document.createElement('h2');
+        // h2.textContent = 'Add h2 element to the div';
+        // div.appendChild(h2);
+
+        // // add div to the document
+        // document.body.appendChild(div);
+
+
+
+        //        // 2) Creating new list items (li) example
+
+        let ul = document.createElement('ul');
+        ul.id = 'fruits';
+        ul.className = "fruitsName"
+        ul.innerHTML = "fruit_World"
+        let li = document.createElement('li');
+        li.innerHTML = "Mango";
+        ul.appendChild(li);
+        document.body.appendChild(ul);
+
+        let li2 = document.createElement('li');
+        li2.innerHTML = "Kiwi";
+        // ull=document.querySelector('#fruits');
+        // ull.appendChild(li2);
+        document.querySelector('#fruits').appendChild(li2);
+
+
+        //adding the list element using the for loop
+
+        for (let i = 3; i < 10; i++) {
+            let li = document.createElement("li")
+            li.innerHTML = `This is Fruit ${i}`;
+            document.querySelector('#fruits').appendChild(li);
+        }
+
+
+
+
+
+
+        function createMenuItem(name) {
+            let li = document.createElement('li');
+            li.textContent = name;
+            return li;
+        }
+        // get the ul#menu
+        const menu = document.querySelector('#menu');
+        // add menu item
+        menu.appendChild(createMenuItem('Home'));
+        menu.appendChild(createMenuItem('Services'));
+        menu.appendChild(createMenuItem('About Us'));
+
+
+
+
+
+
+
+
+
+
+
+
+        //// 3) Creating a script element example
+
+        let script1 = document.createElement('script');
+        script1.src = "scriptlib.js";
+        // document.body.appendChild(script1);
+
+
+
+
+
+        // You can first create a new helper function that loads a JavaScript file from an URL:
+
+        function loadJS(url) {
+            let script = document.createElement('script');
+            script.src = url;
+            document.body.appendChild(script);
+        }
+
+
+
+        // To load a JavaScript file asynchronously, you set the async attribute of the script element to true:
+        function loadJSAsync(url) {
+            let script = document.createElement('script');
+            script.src = url;
+            script.async = true;
+            document.body.appendChild(script);
+        }
+
+
+    </script>
+</body>
+
+</html>

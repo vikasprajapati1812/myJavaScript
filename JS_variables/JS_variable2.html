@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variable</title>
+</head>
+
+<body>
+
+    <h1>Variables</h1>
+
+    <ol>
+        <li>1. A variable is a label that references a value.</li>
+        <li>2. Use the let keyword to declare a variable.</li>
+        <li>3. An undefined variable is a variable that has been declared but not initialized while an undeclared
+            variable is a variable that has not been declared.</li>
+        <li>4. Use the const keyword to define a readonly reference to a value.</li>
+    </ol>
+
+    <h2>Var</h2>
+    <p>variables can be declared in 3ways, var let and const</p>
+    <p>var are hoisted and are in global scope.
+        var are declare initialise at any time and can be redeclared.
+    </p>
+    <h2>let</h2>
+
+    <p>let and const are also said to be hoisted but they go through the temporal dead zone (tdz).
+    </p>
+    <p><em>let cannot redeclared and it can be initialised later .it has a block scope </em></p>
+    <h2>const</h2>
+
+    <p><em>Const cannot redeclared and it cannot be initialised later .
+            it is declared and initialised at the same time.
+            it has a block scope </em></p>
+
+    <script>
+        console.log("vikas")
+        let a = 10;
+        a = 20;           // here it is assign to another value possible in let not in const
+     //   let a=40;       // since here itis redeclared the same variable which is not possible 
+        console.log(a)
+
+        // const b=100;   
+        // b=200;   // this will throw the Typeerror
+
+        // the const should be declare and iniitialised in the same line otherwise it will throw and error.
+
+    </script>
+</body>
+
+</html>

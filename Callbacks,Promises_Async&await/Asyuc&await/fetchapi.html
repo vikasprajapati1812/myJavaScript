@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch API</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <h1>Fetch API</h1>
+    <p>bydefault async function return the Promise</p>
+    <p>but if we use await infront of the fetch api(await fetch(url)) thenif we cconsole log it,it would return the response</p>
+
+    <button id="btnn">Get facts</button>
+    <p class="cat-fact">Get the cats fact here</p>
+
+    <script>
+        const url='https://cat-fact.herokuapp.com/facts';
+        const btnn=document.getElementById('btn');
+        const catfact=document.querySelector('.cat-fact');
+        
+        
+        const getdata=async ()=>{
+            console.log('fetching the data....');
+            // console.log(await fetch(url))  
+            let response=await fetch(url);
+            console.log(response) ;
+            console.table(response); 
+            // console.log(response.type)
+            // console.log(response.url);
+            // console.log(response.redirected);
+            // console.log(response.status);
+            // console.log(response.ok);
+            // console.log(response.status);//200 for success
+            // console.log(response.statusText); 
+            // console.log(response.headers);
+            // console.log(response.bodyUsed);
+            
+            // console.log(response.body); 
+            
+
+            
+            // console.log(response.json()) // uncomment and see the differnce
+
+            // console.log(await response.json())  // json() is also asyncronous method and reutns the promise
+            // since we have above converted it into the JSOn  so we  dont have to do it again
+
+ let data=await response.json();
+ console.log(data);
+ console.log(data[0].text);
+ console.log(data[1].text);
+ console.log(data[2].text);
+ console.log(data[4].text);
+
+
+ catfact.innerText=data[2].text
+ 
+
+ 
+ 
+}
+// getdata()
+btnn.addEventListener("click",getdata)
+    </script>
+</body>
+</html>

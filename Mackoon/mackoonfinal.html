@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mackoon</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        padding: 1.5rem;
+        text-align: center;
+      }
+      h2 {
+        margin-block: 1.5rem;
+        text-shadow: 2px 4px 20px red;
+      }
+      .addElement {
+        display: none;
+      }
+      table {
+        border: 1px solid #ddd;
+        margin-inline: auto;
+        margin-block: 2.5rem;
+        border-collapse: collapse;
+      }
+      tr:hover {
+        background-color: #d6eeee;
+        color: black;
+      }
+      tr {
+        border-bottom: 1px solid black;
+        text-align: center;
+      }
+      td, th {
+        padding-top: 1rem;
+      }
+      .input-fields {
+        display: none;
+      }
+      input {
+        padding: 10px;
+        font-size: 1.1rem;
+        border-radius: 5px;
+        outline: none;
+      }
+      button {
+        padding: 5px 10px;
+      }
+      .dark {
+        background-color: black;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+
+
+    <button id="btn">Dark Mode/Light Mode</button>
+    <h2>URL Data in Table format</h2>
+    <div class="manipulate">
+      <div class="input-fields">
+        <input type="number" id="idd" placeholder="ID" required />
+        <input type="text" id="name" placeholder="Name" required />
+        <input type="text" id="username" placeholder="Username" required />
+        <input type="email" id="email" placeholder="Email" required />
+      </div>
+      <button id="add-save">Add</button>
+      <button id="delete">Delete</button>
+      <button id="update">Update</button>
+    </div>
+    <table style="width: 100%" id="tableBody">
+      <!-- <tr>
+        <th>id</th>
+        <th>user</th>
+        <th>username</th>
+        <th style="width: 40%">email</th>
+      </tr> -->
+    </table>
+
+    <script src="script.js"></script>
+  </body>
+</html>

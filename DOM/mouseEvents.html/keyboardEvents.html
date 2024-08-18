@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keyboard Events</title>
+    <style>
+
+    </style>
+</head>
+<body>
+<h1> Keyboard events</h1>
+<h2 class="demo"></h2>
+<input type="text" id="count">
+<span class="demo1"></span>
+<p class="demo2">
+</p>
+
+
+<h3 class="demooo"></h3>
+<input type="text" id="inputt">
+<span class="span1"></span>
+<p class="para"></p>
+
+
+<h4>differnce between the keypress and keyup or keydown is that in keydown or keyup the shift and the 
+    CTRL and ALT are also get
+</h4>
+
+    <script>
+
+
+let input=document.querySelector('#count');
+let demo=document.querySelector('.demo');
+let demo1=document.querySelector('.demo1');
+let demo2=document.querySelector('.demo2');
+
+// input.addEventListener('keypress',demos)
+// function demos(event){
+//    demo.innerHTML=event.key;   // helps to know which key is pressed
+//    demo1.innerHTML=event.code;  // enter the Code for ex. a => keyA
+
+//    demo2.innerHTML=this.value;  // here event not work so have to write this.value
+// }
+
+
+
+
+
+let demooo=document.querySelector('.demooo');
+let counts=document.querySelector('.inputt');
+let para=document.querySelector('.para');
+let spann=document.querySelector('.span1');
+
+inputt.addEventListener('keydown',next)
+function next(event){
+   demooo.innerHTML=event.key;   // helps to know which key is pressed
+//    para.innerHTML=event.code;  // enter the Code for ex. a => keyA
+   para.innerHTML=event.location;
+   spann.innerHTML=this.value;  // here event not work so have to write this.value
+}
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>
