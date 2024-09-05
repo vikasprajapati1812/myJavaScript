@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Airforce Form Registration</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f8f9fa;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .container {
+        background-color: #ffffff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        max-width: 800px;
+        width: 100%;
+        margin: 20px;
+        display: flex;
+        flex-direction: row;
+      }
+      .form-container {
+        width: 50%;
+      }
+      .image-container {
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 20px;
+      }
+      .image-container img {
+        max-width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 8px;
+      }
+      h2 {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      .form-group {
+        margin-bottom: 15px;
+      }
+      .form-group label {
+        display: block;
+        margin-bottom: 5px;
+      }
+      .form-group input,
+      .form-group select,
+      .form-group textarea {
+        width: 100%;
+        padding: 8px;
+        box-sizing: border-box;
+        border: 1px solid #ced4da;
+        border-radius: 4px;
+      }
+      .form-check {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+      }
+      .form-check input {
+        margin-right: 5px;
+      }
+      .form-check-inline {
+        display: inline-flex;
+        align-items: center;
+        margin-right: 10px;
+      }
+      label {
+        font-family: Georgia, "Times New Roman", Times, serif;
+        font-weight: 800;
+      }
+      .btn {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        background-color: #007bff;
+        color: #ffffff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+      .btn:hover {
+        background-color: #0056b3;
+      }
+      @media (max-width: 768px) {
+        .container {
+          flex-direction: column;
+          align-items: center;
+        }
+        .image-container {
+          margin-right: 0;
+          margin-bottom: 20px;
+        }
+        .image-container img {
+          width: 100%;
+          height: auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="image-container">
+        <img src="./sean.jpg" alt="Placeholder Image" />
+      </div>
+      <div class="form-container">
+        <h2>Airforce Form Registration</h2>
+        <form>
+          <div class="form-group">
+            <label for="firstName">First Name</label>
+            <input type="text" id="firstName" name="firstName" required />
+          </div>
+          <div class="form-group">
+            <label for="lastName">Last Name</label>
+            <input type="text" id="lastName" name="lastName" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required />
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required />
+          </div>
+          <div class="form-group">
+            <label for="dob">Date of Birth</label>
+            <input type="date" id="dob" name="dob" required />
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" required />
+          </div>
+          <div class="form-group">
+            <label for="gender">Gender</label>
+            <div class="form-check-inline">
+              <input
+                type="radio"
+                id="male"
+                name="gender"
+                value="male"
+                required
+              />
+              <label for="male">Male</label>
+            </div>
+            <div class="form-check-inline">
+              <input
+                type="radio"
+                id="female"
+                name="gender"
+                value="female"
+                required
+              />
+              <label for="female">Female</label>
+            </div>
+            <div class="form-check-inline">
+              <input
+                type="radio"
+                id="other"
+                name="gender"
+                value="other"
+                required
+              />
+              <label for="other">Other</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Marital Status</label>
+            <div class="form-check-inline">
+              <input
+                type="radio"
+                name="maritalStatus"
+                id="single"
+                value="single"
+                required
+              />
+              <label for="single">Single</label>
+            </div>
+            <div class="form-check-inline">
+              <input
+                type="radio"
+                name="maritalStatus"
+                id="married"
+                value="married"
+                required
+              />
+              <label for="married">Married</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Hobbies</label>
+            <div class="form-check-inline">
+              <input
+                type="checkbox"
+                id="hobby1"
+                name="hobbies"
+                value="reading"
+              />
+              <label for="hobby1">Reading</label>
+            </div>
+            <div class="form-check-inline">
+              <input
+                type="checkbox"
+                id="hobby2"
+                name="hobbies"
+                value="travelling"
+              />
+              <label for="hobby2">Travelling</label>
+            </div>
+            <div class="form-check-inline">
+              <input
+                type="checkbox"
+                id="hobby3"
+                name="hobbies"
+                value="sports"
+              />
+              <label for="hobby3">Sports</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="address">Address</label>
+            <textarea id="address" name="address" rows="3" required></textarea>
+          </div>
+          <div class="form-group">
+            <label for="city">City</label>
+            <input type="text" id="city" name="city" required />
+          </div>
+          <div class="form-group">
+            <label for="state">State</label>
+            <input type="text" id="state" name="state" required />
+          </div>
+          <div class="form-group">
+            <label for="zip">Zip Code</label>
+            <input type="text" id="zip" name="zip" required />
+          </div>
+          <div class="form-group">
+            <label for="country">Country</label>
+            <input type="text" id="country" name="country" required />
+          </div>
+          <button type="submit" class="btn">Submit</button>
+        </form>
+      </div>
+    </div>
+    <script>
+      document
+        .querySelector("form")
+        .addEventListener("submit", function (event) {
+          event.preventDefault(); // Prevent the default form submission
+          const formData = new FormData(event.target);
+          console.log(formData);
+          const formObject = {};
+          formData.forEach((value, key) => {
+            if (formObject[key]) {
+              if (!Array.isArray(formObject[key])) {
+                formObject[key] = [formObject[key]];
+              }
+              formObject[key].push(value);
+            } else {
+              formObject[key] = value;
+            }
+          });
+          console.log(formObject);
+        });
+    </script>
+  </body>
+</html>
